@@ -5,7 +5,7 @@
   "description": "植物营养与试验统计互动教学 · 黄利东",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "check": "node scripts/check.mjs && node scripts/check-splitplot.mjs",
+    "check": "node scripts/check.mjs && node scripts/check-splitplot.mjs && node scripts/check-maize.mjs",
     "start": "node scripts/serve.mjs"
   }
 }

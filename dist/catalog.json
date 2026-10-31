@@ -5,14 +5,14 @@
     "category": "植物营养",
     "chapter": "养分吸收与运输",
     "question": "土壤里的养分，怎样进入一片叶子？",
-    "description": "跟随一枚养分离子，从土壤溶液走向根系与地上部。",
+    "description": "观察玉米节根、侧根和根毛，跟随养分进入植株。",
     "steps": [
       "土壤溶液",
       "根表迁移",
       "跨膜吸收",
       "向上运输"
     ],
-    "cover": "covers/uptake-v2.webp",
+    "cover": "covers/uptake-v3.webp",
     "path": "lessons/uptake.html",
     "accent": "#98cfa7"
   },

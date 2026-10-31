@@ -24,6 +24,7 @@ jobs:
       - run: node scripts/build.mjs
       - run: node scripts/check.mjs
       - run: node scripts/check-splitplot.mjs
+      - run: node scripts/check-maize.mjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
