@@ -2,3 +2,5 @@ body.culture{--c-panel:330px}body.culture .steps{max-width:1320px;width:calc(100
 /* Each preparation stage exposes its actual operations instead of a mature
    maize plant next to unchanged apparatus. */
 .c-operations{display:flex;gap:5px;margin:13px 0 5px;flex-wrap:wrap}.c-operations button{flex:1;min-width:65px;border:1px solid #d6e1cd;background:#f3f6ed;color:#8a987c;border-radius:4px;padding:7px 5px;font-size:10px;cursor:pointer;white-space:nowrap}.c-operations button[aria-pressed=true]{background:#deecd6;border-color:#bcd2ae;color:#3d744e}@media(max-width:700px){.c-operations{margin:9px 0 4px}.c-operations button{font-size:10px;padding:7px 6px}}
+.c-weigh-adjust{padding:12px 0;border-bottom:1px solid #dce5d5;font-size:11px;color:#76896b}.c-weigh-adjust label{display:grid;grid-template-columns:1fr auto;gap:8px}.c-weigh-adjust input{grid-column:1/-1;width:100%;accent-color:#689062;height:20px;touch-action:pan-y}.c-control:disabled{opacity:.38;cursor:default}
+@media(max-width:700px){body.culture .c-control{min-height:36px}.c-operations button{min-height:32px}}
