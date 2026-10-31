@@ -128,5 +128,69 @@
     "cover": "covers/interaction-v2.webp",
     "path": "lessons/interaction.html",
     "accent": "#e1ad91"
+  },
+  {
+    "id": "soil-culture",
+    "title": "土培 · 玉米磷肥效应",
+    "category": "培养试验",
+    "chapter": "土壤供磷与盆栽肥效",
+    "question": "土壤本底不同，磷肥效应该怎样研究？",
+    "description": "从选土、混肥到称重补水，用玉米生长与吸磷量评价磷效应。",
+    "steps": [
+      "问题与对照",
+      "取土与测定",
+      "磷处理与配平",
+      "装盆与定苗",
+      "随机与重复",
+      "称重与补水",
+      "生长与收获",
+      "计算与解释"
+    ],
+    "cover": "covers/soil-culture-v1.jpg",
+    "path": "lessons/soil-culture.html",
+    "accent": "#c5ad89"
+  },
+  {
+    "id": "sand-culture",
+    "title": "砂培 · 自动砂面浇灌",
+    "category": "培养试验",
+    "chapter": "自动砂面浇灌与供磷",
+    "question": "营养液怎样自动到达砂面，再回到起点？",
+    "description": "跟随气压驱动的供液、回液与补液循环，完成独立的磷处理。",
+    "steps": [
+      "问题与处理",
+      "洗砂与装盆",
+      "配液与配平",
+      "辨认液路",
+      "加压喷灌",
+      "卸压与补液",
+      "随机与养护",
+      "玉米与收获",
+      "比较与结论"
+    ],
+    "cover": "covers/sand-culture-v1.jpg",
+    "path": "lessons/sand-culture.html",
+    "accent": "#dacb9e"
+  },
+  {
+    "id": "hydro-culture",
+    "title": "水培 · 霍格兰供磷试验",
+    "category": "培养试验",
+    "chapter": "霍格兰营养液与磷效应",
+    "question": "怎样改变磷，而不把缺钾混进试验？",
+    "description": "用改良半量霍格兰营养液，串起磷钾配平、通气换液与取样。",
+    "steps": [
+      "问题与对照",
+      "配制霍格兰液",
+      "磷与钾配平",
+      "育苗与定植",
+      "随机与重复",
+      "通气与换液",
+      "生长与取样",
+      "吸磷量与解释"
+    ],
+    "cover": "covers/hydro-culture-v1.jpg",
+    "path": "lessons/hydro-culture.html",
+    "accent": "#9bc9bc"
   }
 ]

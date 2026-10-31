@@ -55,7 +55,9 @@ function setup(world,state){Object.assign(world.initial,{yaw:-.22,pitch:.22,zoom
  nav.querySelectorAll('button').forEach(b=>b.onclick=()=>select(b.dataset.view));const old=world.update;world.update=dt=>{old?.(dt);if(state.step!==lastStep){lastStep=state.step;select(['whole','roots','hair','whole'][state.step])}world.target+=(target-world.target)*Math.min(1,dt*5);world.extent+=(extent-world.extent)*Math.min(1,dt*5);note.textContent=state.maizeView==='hair'?'根毛为表皮细胞的伸长 · 非侧根':'玉米须根系 · 营养生长期'};document.getElementById('reset').addEventListener('click',()=>{lastStep=0;select('whole')});select('whole');world.target=target;world.extent=extent;
  window.maizeDiagnostics={axes,laterals,hairs,leaves,get view(){return state.maizeView}};
 }
-window.MaizeUptake={draw,setup,geometry:{axes,laterals,hairs,leaves},point};if(window.TeachingWorlds)window.TeachingWorlds.uptake=draw;
+// Reuse the botanical mesh in culture experiments without the uptake UI.
+function drawPlant(w,{x=0,y=0,z=0,scale=1,shootScale=1,rootScale=1,roots=true}={}){const q=Object.create(w),map=p=>{const f=p[1]<0?rootScale:shootScale;return [x+p[0]*scale*f,y+p[1]*scale*f,z+p[2]*scale*f]};q.poly=(p,c,o)=>w.poly(p.map(map),c,o);q.line=(p,c,n,o)=>w.line(p.map(map),c,n,o);q.project=p=>w.project(map(p));if(roots)rootSystem(q);shoot(q)}
+window.MaizeUptake={draw,setup,drawPlant,geometry:{axes,laterals,hairs,leaves},point};if(window.TeachingWorlds)window.TeachingWorlds.uptake=draw;
 })();
 
 

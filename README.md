@@ -17,6 +17,11 @@
 | <img src="dist/covers/splitplot-v2.webp" width="190" alt="裂区试验设计"> | [裂区试验设计](https://lidong-huang.github.io/plant-nutrition-lab/lessons/splitplot.html) | 灌水主区 → 施肥副区 → 两级随机 → 两层误差 | [独立 HTML](dist/downloads/splitplot.html) |
 | <img src="dist/covers/normal-v2.webp" width="190" alt="正态分布"> | [正态分布](https://lidong-huang.github.io/plant-nutrition-lab/lessons/normal.html) | 形状 → 对称 → 均值 → 标准差 → 拐点 → 概率 | [独立 HTML](dist/downloads/normal.html) |
 | <img src="dist/covers/interaction-v2.webp" width="190" alt="交互作用"> | [氮 × 磷的交互作用](https://lidong-huang.github.io/plant-nutrition-lab/lessons/interaction.html) | 因素 → 无交互 → 正交互 → 对比 | [独立 HTML](dist/downloads/interaction.html) |
+| <img src="dist/covers/soil-culture-v1.jpg" width="190" alt="土培 · 玉米磷肥效应"> | [土培 · 玉米磷肥效应](https://lidong-huang.github.io/plant-nutrition-lab/lessons/soil-culture.html) | 问题与对照 → 取土与测定 → 磷处理与配平 → 装盆与定苗 → 随机与重复 → 称重与补水 → 生长与收获 → 计算与解释 | [独立 HTML](dist/downloads/soil-culture.html) |
+| <img src="dist/covers/sand-culture-v1.jpg" width="190" alt="砂培 · 自动砂面浇灌"> | [砂培 · 自动砂面浇灌](https://lidong-huang.github.io/plant-nutrition-lab/lessons/sand-culture.html) | 问题与处理 → 洗砂与装盆 → 配液与配平 → 辨认液路 → 加压喷灌 → 卸压与补液 → 随机与养护 → 玉米与收获 → 比较与结论 | [独立 HTML](dist/downloads/sand-culture.html) |
+| <img src="dist/covers/hydro-culture-v1.jpg" width="190" alt="水培 · 霍格兰供磷试验"> | [水培 · 霍格兰供磷试验](https://lidong-huang.github.io/plant-nutrition-lab/lessons/hydro-culture.html) | 问题与对照 → 配制霍格兰液 → 磷与钾配平 → 育苗与定植 → 随机与重复 → 通气与换液 → 生长与取样 → 吸磷量与解释 | [独立 HTML](dist/downloads/hydro-culture.html) |
+
+三个培养资源的教材对应、试验步骤、磷钾配平与霍格兰配方见 [磷效应培养试验](docs/磷效应培养试验.md)。
 
 ## 使用
 
@@ -49,5 +54,6 @@ docs/                 # 发布、内容依据与维护说明
 新课件采用独立编写的 Canvas 立体几何和粒子动画，首页采用原创生成的立体科学封面；正态分布沿用本地已有课程。数值、植物高度与环境均为教学设定，非真实试验结果。最小养分律将植物生长与木桶联动，模型和情景见 [最小养分律说明](docs/最小养分律说明.md)；交互作用采用可调的四格均值模型，不据此判断统计显著性。裂区试验的过程与统计结构见 [裂区试验说明](docs/裂区试验说明.md)。氮素各过程、损失出口与演示边界见 [氮素转化机理](docs/氮素转化机理.md)。详见 [内容依据](docs/内容依据.md) 与 [封面设计](docs/封面设计.md)。
 
 资源组织方式参考 [Tongjiang Lab](https://github.com/smithjohn78390/tongjiang-lab)，未复制其代码、封面或课程素材。当前项目未额外授予开源许可；公开使用与再分发方式由作者确定。
+
 
 
