@@ -68,6 +68,26 @@
     "accent": "#c5d49b"
   },
   {
+    "id": "splitplot",
+    "title": "裂区试验设计",
+    "category": "田间试验",
+    "chapter": "灌水主区 × 施肥副区",
+    "question": "两个灌水水平、三个施肥水平，怎样分两级做公平比较？",
+    "description": "先随机灌水主区，再随机施肥副区，理解两级随机化与两层误差。",
+    "steps": [
+      "研究问题",
+      "区组主区",
+      "主区随机",
+      "副区随机",
+      "实施处理",
+      "观察比较",
+      "两层误差"
+    ],
+    "cover": "covers/splitplot-v2.webp",
+    "path": "lessons/splitplot.html",
+    "accent": "#95bfd0"
+  },
+  {
     "id": "normal",
     "title": "正态分布",
     "category": "试验统计",

@@ -14,6 +14,7 @@
 | <img src="dist/covers/minimum-v2.webp" width="190" alt="最小养分律"> | [最小养分律](https://lidong-huang.github.io/plant-nutrition-lab/lessons/minimum.html) | 供给 → 短板 → 补氮 → 平衡 | [独立 HTML](dist/downloads/minimum.html) |
 | <img src="dist/covers/nitrogen-v2.webp" width="190" alt="氮素转化"> | [土壤中的氮素转化](https://lidong-huang.github.io/plant-nutrition-lab/lessons/nitrogen.html) | 有机氮 → 矿化 → 硝化 → 去向 | [独立 HTML](dist/downloads/nitrogen.html) |
 | <img src="dist/covers/blocks-v2.webp" width="190" alt="区组田间试验"> | [随机区组设计](https://lidong-huang.github.io/plant-nutrition-lab/lessons/blocks.html) | 梯度 → 区组 → 随机 → 重复 | [独立 HTML](dist/downloads/blocks.html) |
+| <img src="dist/covers/splitplot-v2.webp" width="190" alt="裂区试验设计"> | [裂区试验设计](https://lidong-huang.github.io/plant-nutrition-lab/lessons/splitplot.html) | 灌水主区 → 施肥副区 → 两级随机 → 两层误差 | [独立 HTML](dist/downloads/splitplot.html) |
 | <img src="dist/covers/normal-v2.webp" width="190" alt="正态分布"> | [正态分布](https://lidong-huang.github.io/plant-nutrition-lab/lessons/normal.html) | 形状 → 对称 → 均值 → 标准差 → 拐点 → 概率 | [独立 HTML](dist/downloads/normal.html) |
 | <img src="dist/covers/interaction-v2.webp" width="190" alt="交互作用"> | [氮 × 磷的交互作用](https://lidong-huang.github.io/plant-nutrition-lab/lessons/interaction.html) | 因素 → 无交互 → 正交互 → 对比 | [独立 HTML](dist/downloads/interaction.html) |
 
@@ -45,6 +46,6 @@ docs/                 # 发布、内容依据与维护说明
 
 ## 模型与来源
 
-新课件采用独立编写的 Canvas 立体几何和粒子动画，首页采用原创生成的立体科学封面；正态分布沿用本地已有课程。数值、植物高度与环境均为教学设定，非真实试验结果。最小养分律使用相对满足度最小值；交互作用采用可调的四格均值模型，不据此判断统计显著性。详见 [内容依据](docs/内容依据.md) 与 [封面设计](docs/封面设计.md)。
+新课件采用独立编写的 Canvas 立体几何和粒子动画，首页采用原创生成的立体科学封面；正态分布沿用本地已有课程。数值、植物高度与环境均为教学设定，非真实试验结果。最小养分律使用相对满足度最小值；交互作用采用可调的四格均值模型，不据此判断统计显著性。裂区试验的过程与统计结构见 [裂区试验说明](docs/裂区试验说明.md)。详见 [内容依据](docs/内容依据.md) 与 [封面设计](docs/封面设计.md)。
 
 资源组织方式参考 [Tongjiang Lab](https://github.com/smithjohn78390/tongjiang-lab)，未复制其代码、封面或课程素材。当前项目未额外授予开源许可；公开使用与再分发方式由作者确定。
