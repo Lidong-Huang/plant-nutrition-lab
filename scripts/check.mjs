@@ -16,3 +16,11 @@ for(const c of cat){for(let s=0;s<c.steps.length;s++){const svg=ctx.PlantScenes[
 const minimum=ctx.PlantScenes.minimum({n:100,p:35,k:70},2);assert(minimum.includes('35%'));assert(minimum.includes('限制养分：P'));
 const interaction=ctx.PlantScenes.interaction({effect:20},3);assert(interaction.includes('(75 − 35) − (40 − 20) = 20'));
 console.log(`PASS: ${cat.length} lessons; local links, offline scripts, SVG scenes and model invariants.`);
+const models={window:{},PlantWorld:{lerp:(a,b,t)=>a+(b-a)*t}};
+vm.createContext(models);vm.runInContext(read('assets/world-scenes.js'),models);
+const minimum3D=models.window.TeachingModels.minimum({n:100,p:35,k:70});assert.equal(minimum3D.value,35);assert.equal(minimum3D.limiter,'P');
+assert.equal(models.window.TeachingModels.minimum({n:90,p:90,k:90}).limiter,'Mg');
+for(const effect of [-25,0,25]){const model=models.window.TeachingModels.interaction(effect);assert.equal((model.means[3]-model.means[2])-(model.means[1]-model.means[0]),effect)}
+for(let i=0;i<50;i++)assert.equal([...models.window.TeachingModels.shuffle([0,1,2,3])].sort().join(','),'0,1,2,3');
+for(const c of cat.filter(c=>c.id!=='normal')){assert(read(c.path).includes('world-engine.js'));assert(read(c.path).includes('<canvas id="scene"'));assert(read(`downloads/${c.id}.html`).includes('class World'))}
+console.log('PASS: 3D model limits, interaction contrasts, complete randomized treatments, embedded offline engine.');
