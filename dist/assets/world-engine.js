@@ -8,7 +8,7 @@ function shade(hex,k){let c=hex.replace('#','');if(c.length===3)c=c.split('').ma
 class World{
  constructor(canvas,{yaw=-.58,pitch=.43,extent=15,target=1.6}={}){this.canvas=canvas;this.ctx=canvas.getContext('2d');this.initial={yaw,pitch,zoom:1};this.camera={...this.initial};this.current={...this.initial};this.extent=extent;this.target=target;this.items=[];this.labels=[];this.time=0;this.paused=matchMedia('(prefers-reduced-motion: reduce)').matches;this.autoRotate=false;this.frameCount=0;this.width=0;this.height=0;this.pointerMap=new Map();this.resizeObserver=new ResizeObserver(()=>this.resize());this.resizeObserver.observe(canvas);this.bind();this.last=performance.now();this.loop=this.loop.bind(this);this.frame=requestAnimationFrame(this.loop)}
  resize(){const r=this.canvas.getBoundingClientRect();this.width=r.width;this.height=r.height;this.dpr=Math.min(devicePixelRatio||1,2);this.canvas.width=Math.round(r.width*this.dpr);this.canvas.height=Math.round(r.height*this.dpr)}
- project(p){let [x,y,z]=p;y-=this.target;let cy=Math.cos(this.current.yaw),sy=Math.sin(this.current.yaw),cp=Math.cos(this.current.pitch),sp=Math.sin(this.current.pitch);let xx=x*cy+z*sy,zz=-x*sy+z*cy,yy=y*cp+zz*sp,depth=-y*sp+zz*cp,k=28/(28+depth),scale=Math.min(this.width/this.extent,this.height/(this.extent*.67))*this.current.zoom;return{x:this.width*.5+xx*scale*k,y:this.height*.46-yy*scale*k,depth,scale:scale*k}}
+ project(p){let [x,y,z]=p;x-=this.focusX||0;y-=this.target;let cy=Math.cos(this.current.yaw),sy=Math.sin(this.current.yaw),cp=Math.cos(this.current.pitch),sp=Math.sin(this.current.pitch);let xx=x*cy+z*sy,zz=-x*sy+z*cy,yy=y*cp+zz*sp,depth=-y*sp+zz*cp,k=28/(28+depth),scale=Math.min(this.width/this.extent,this.height/(this.extent*.67))*this.current.zoom;return{x:this.width*.5+xx*scale*k,y:this.height*.46-yy*scale*k,depth,scale:scale*k}}
  poly(points,color,{alpha=1,line=null,lit=true,layer=0}={}){const pp=points.map(p=>this.project(p));let intensity=1;if(lit&&points.length>2){let n=cross(sub(points[1],points[0]),sub(points[2],points[0])),len=Math.hypot(...n)||1;intensity=.72+.25*Math.abs((n[0]*-.4+n[1]*.8+n[2]*.4)/len)}this.items.push({type:'poly',layer,points:pp,color:shade(color,intensity),alpha,line,depth:pp.reduce((s,p)=>s+p.depth,0)/pp.length})}
  box(x,y,z,w,h,d,color,opts={}){const a=[x-w/2,y,z-d/2],b=[x+w/2,y,z-d/2],c=[x+w/2,y,z+d/2],e=[x-w/2,y,z+d/2],up=p=>[p[0],p[1]+h,p[2]],A=up(a),B=up(b),C=up(c),E=up(e);for(const f of [[a,e,c,b],[a,b,B,A],[b,c,C,B],[c,e,E,C],[e,a,A,E],[A,B,C,E]])this.poly(f,color,{layer:y+h<=.011?-120:h<=.22?-80:0,...opts})}
  cylinder(x,y,z,r,h,color,{n=22,alpha=1,open=false}={}){let low=[],high=[];for(let i=0;i<n;i++){let t=i/n*Math.PI*2;low.push([x+r*Math.cos(t),y,z+r*Math.sin(t)]);high.push([x+r*Math.cos(t),y+h,z+r*Math.sin(t)])}for(let i=0;i<n;i++)this.poly([low[i],low[(i+1)%n],high[(i+1)%n],high[i]],color,{alpha});if(!open)this.poly(high,color,{alpha});return {low,high}}
@@ -35,6 +35,7 @@ class World{
 }
 window.PlantWorld={World,clamp,lerp,shade};
 })();
+
 
 
 

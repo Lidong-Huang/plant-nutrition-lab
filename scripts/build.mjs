@@ -16,7 +16,7 @@ for(const c of catalog){
   if(c.id==='normal')continue;
   const scripts=c.id==='splitplot'?['assets/catalog.js','assets/world-engine.js','assets/splitplot-model.js','assets/splitplot-world.js','assets/splitplot.js']:['assets/catalog.js','assets/world-engine.js','assets/world-scenes.js','assets/lesson.js'];
   if(c.id==='minimum')scripts.splice(scripts.length-1,0,'assets/minimum-growth.js');
-  if(c.id.endsWith('-culture'))scripts.splice(2,scripts.length-2,'assets/maize-uptake.js','assets/culture-model.js','assets/culture-world.js','assets/culture-practical.js','assets/culture.js');
+  if(c.id.endsWith('-culture'))scripts.splice(2,scripts.length-2,'assets/maize-uptake.js','assets/culture-model.js','assets/culture-equipment.js','assets/culture-world.js','assets/culture-practical.js','assets/maize-harvest.js','assets/culture.js');
   if(c.id==='uptake')scripts.splice(scripts.length-1,0,'assets/maize-uptake.js');
   if(c.id==='nitrogen')scripts.splice(2,scripts.length-2,'assets/nitrogen-model.js','assets/nitrogen-world.js','assets/nitrogen.js');
   write(c.path,`<!doctype html>
