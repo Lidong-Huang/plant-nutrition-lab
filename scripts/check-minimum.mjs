@@ -1,0 +1,15 @@
+import fs from 'node:fs';
+import vm from 'node:vm';
+import assert from 'node:assert/strict';
+const ctx={window:{},TeachingModels:{}};vm.createContext(ctx);vm.runInContext(fs.readFileSync(new URL('../dist/assets/minimum-growth.js',import.meta.url),'utf8'),ctx);
+const {evaluate,presets}=ctx.window.MinimumGrowth;
+assert.equal(evaluate({n:80,p:35,k:70}).value,35);
+assert.equal(evaluate({n:100,p:35,k:70}).height,evaluate({n:80,p:35,k:70}).height,'Adding nonlimiting N must not change height');
+assert.equal(evaluate({n:100,p:90,k:70}).limiter,'K');
+assert.deepEqual(Array.from(evaluate({n:90,p:90,k:90}).limiters),['N','P','K']);
+assert.equal(evaluate({n:0,p:100,k:100}).value,0);
+assert.equal(evaluate({n:100,p:100,k:100}).value,100,'Other nutrients assumed adequate');
+assert.throws(()=>evaluate({n:101,p:30,k:70}));assert.throws(()=>evaluate({n:NaN,p:30,k:70}));
+assert.deepEqual(Array.from(presets,p=>evaluate({n:p[0],p:p[1],k:p[2]}).value),[35,35,35,70,90]);
+const offline=fs.readFileSync(new URL('../dist/downloads/minimum.html',import.meta.url),'utf8');assert(offline.includes('window.MinimumGrowth'));assert(offline.includes('minimum-story'));
+console.log('PASS: minimum growth invariance under nonlimiting supply, limiting nutrient transfer, tied constraints, adequate background, valid inputs and offline scene.');

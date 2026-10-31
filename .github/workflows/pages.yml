@@ -26,6 +26,7 @@ jobs:
       - run: node scripts/check-splitplot.mjs
       - run: node scripts/check-maize.mjs
       - run: node scripts/check-nitrogen.mjs
+      - run: node scripts/check-minimum.mjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

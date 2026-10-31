@@ -22,12 +22,13 @@
     "category": "植物营养",
     "chapter": "养分限制与平衡施肥",
     "question": "为什么增加氮肥，植物也不一定长得更好？",
-    "description": "调整氮、磷、钾供给，看限制因子如何发生转移。",
+    "description": "把植物生长与木桶水位联系起来，看短板如何限制生长、如何转移。",
     "steps": [
-      "养分供给",
+      "观察植株",
       "寻找短板",
-      "单独补氮",
-      "平衡供给"
+      "只补氮",
+      "补磷再看",
+      "协调供给"
     ],
     "cover": "covers/minimum-v2.webp",
     "path": "lessons/minimum.html",
