@@ -72,3 +72,6 @@
 - 本地教材第一章第三节、表 1-9；[USDA 收录的植物生理研究原文](https://www.ars.usda.gov/arsuserfiles/20361500/pdf_pubs/P0007.pdf) 亦使用 5、5、2、1 mmol/L 的基础大量元素组合。
 - [METTLER TOLEDO pH 电极校准与测量指南](https://www.mt.com/dam/Analytical/pH-LabMeters/me-library/pH-Guide_en.pdf)；[Metrohm 校准说明](https://www.metrohm.com/en/discover/blog/2024/calibrate-pH-meter.html)：缓冲液范围、冲洗、温度与稳定读数。
 - `dist/assets/hydro-lab.js` 实现剂量、操作条件、实验台、磁力搅拌、容量瓶液位、pH 校准与通气交互。其他培养资源保持各自流程，水培千粒重操作也保留。
+
+
+称量视图提供 12 种药品选项：3 种直接配制培养液的大量元素盐，以及 9 种母液原料。母液原料可单独演示去皮和称量，页面注明母液配制体积；该称量演示不自动视为母液已配制，也不把原料直接加入本批培养液。Fe-EDTA 使用含 Fe 13% 产品的示例，配制 Fe 10 mM 母液 1 L 时称取 4.2958 g，实际应按产品标示 Fe 质量分数换算。药品瓶排列在天平后方。
