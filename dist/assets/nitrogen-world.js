@@ -1,0 +1,37 @@
+(()=>{'use strict';
+const C={organic:'#a9b175',ammonium:'#d3b75d',nitrate:'#67aabc',ammonia:'#d8945a',denit:'#a18caf',water:'#8bc5d5',earth:'#ac9571'};
+function spherePool(w,x,y,z,name,color,r=.35){w.dot([x,y,z],r,color,{alpha:.72});w.label([x,y+.2,z],name,{dy:-21,size:14,color:name==='NH₄⁺'?'#99762b':name==='NO₃⁻'?'#3c7b8e':'#78805b',pill:true})}
+function base(w,s){w.box(0,-3.5,0,11.4,.13,5.6,'#b7a886');w.box(0,-3.35,1.55,11.1,3.35,.25,'#ad9570');w.box(-5.5,-3.35,.15,.15,3.35,2.8,'#b5a07b');w.box(5.5,-3.35,.15,.15,3.35,2.8,'#b5a07b');w.box(0,.01,1.15,11.2,.07,1.05,'#a2b57c');for(let i=0;i<80;i++){const x=-5.2+(i*1.719)%10.4,y=-3.1+(i*.433)%2.9;w.poly([[x-.035,y-.025,1.38],[x+.04,y-.02,1.38],[x+.02,y+.035,1.38],[x-.025,y+.04,1.38]],['#9a845f','#c3ad86','#a38e6c'][i%3],{lit:false,layer:-100})}
+ for(let i=0;i<6;i++){let x=-4.7+i*.24;w.leaf([x,.1,.1],[x+.4,.15,.4],.12,'#b9a66e')}
+ w.plant(3.35,.07,.1,2.1,1,{roots:true});w.plant(4.25,.07,.9,1.6,3);w.line([[-5.3,s.e.rootBoundary,-1.35],[5.2,s.e.rootBoundary,-1.35]],'#a6bca7',1,{dash:[6,5]});w.label([-4.6,s.e.rootBoundary,-1.4],'当前根层下界（示意）',{dy:18,size:10,color:'#8d9e83'});
+}
+function clay(w,s){const x=-2.9,y=-1.1,z=-.78;for(let i=0;i<3;i++)w.box(x,y+i*.09,z,.9,.035,.45,'#8d9fa0');for(let i=0;i<4;i++){let p=[x-.34+i*.22,y+.36,z-.23];w.dot(p,.042,C.ammonium);if(w.width>600)w.label([p[0],p[1]-.12,p[2]],'−',{size:12,color:'#677e7d'})}if([4,6,8].includes(s.step))w.label([x,y+.1,z],'负电交换位点 · 相对保留 NH₄⁺',{dx:-27,dy:28,size:10,pill:true})}
+function urea(w,s){const y=s.incorporated?-.72:.13,x=-2.2,z=-.28;for(let i=0;i<7;i++)w.dot([x+Math.sin(i*2.4)*.33,y,z+Math.cos(i*2.4)*.18],.047,'#e9e5c8');if(s.incorporated)w.box(x,-.02,z,1.1,.08,.7,'#b29a73');w.label([x,y+.13,z],s.incorporated?'尿素 · 混入土层':'尿素 · 土表',{dy:-22,size:11,pill:true});return [x,y,z]}
+function transformations(w,s){const k=s.step;
+ spherePool(w,-4,-.65,-.3,'有机氮',C.organic,.38);spherePool(w,-.7,-.65,-.3,'NH₄⁺',C.ammonium,.35);spherePool(w,2.05,-.65,-.3,'NO₃⁻',C.nitrate,.35);
+ if(k===0){w.arrow([-3.45,-.65,-.3],[-1.3,-.65,-.3],'#9baf85');w.arrow([-.15,-.65,-.3],[1.45,-.65,-.3],'#9baf85');w.label([-2.25,-.4,-.3],'矿化',{dy:22,size:11});w.label([.6,-.4,-.3],'硝化',{dy:22,size:11});urea(w,s);return}
+ if(k===1){w.stream([[-4,-.65,-.3],[-2.6,-.4,-.3],[-.7,-.65,-.3]],C.ammonium,{count:11,speed:.1,size:.045});for(let i=0;i<4;i++)w.dot([-3.3+i*.25,-.25,-.3+(i%2)*.2],.07,'#8b9a64');w.label([-2.5,-.3,-.3],'微生物 / 酶',{dy:-15,size:11,pill:true});w.stream([[-.8,-.75,-.3],[-2.2,-1.25,-.4],[-3.7,-.95,-.3]],C.organic,{count:5,speed:.06,size:.025});w.label([-2.2,-1.25,-.4],'微生物同化（暂存）',{dy:23,size:10})}
+ if(k===2){const p=urea(w,s);w.stream([p,[-1.5,-.2,-.3],[-.7,-.65,-.3]],C.ammonium,{count:12,speed:.12,size:.035});w.label([-1.6,.5,-.3],'脲酶 + 水',{dy:-15,size:11,pill:true});w.label([-2.2,-1.5,-.3],'施肥点 pH 可暂时升高',{dy:10,size:11,color:'#ab8554'})}
+ if(k===3){w.stream([[-.7,-.65,-.3],[.6,-.65,-.3]],C.ammonium,{count:6,speed:.1,size:.035});w.stream([[.6,-.65,-.3],[2.05,-.65,-.3]],C.nitrate,{count:6,speed:.1,size:.035});w.dot([.6,-.65,-.3],.16,'#aab7a0');w.label([.6,-.65,-.3],'NO₂⁻',{dy:24,size:12,pill:true});w.stream([[.5,1.1,-.2],[.5,.2,-.2],[.5,-.4,-.2]],'#b1c3ce',{count:6,speed:.12,size:.035});w.label([.5,.85,-.2],'O₂ ↓',{dx:30,size:12,color:'#8ca2aa'});w.label([.6,-1.3,-.3],'产生 H⁺ · 可促使酸化',{size:11,color:'#a58c70'})}
+ if(k===4){w.stream([[-.7,-.65,-.3],[1.2,-.7,-.2],[3.15,-.25,0],[3.35,1.8,.1]],C.ammonium,{count:12,speed:.1,size:.035});w.stream([[2.05,-.65,-.3],[2.7,-.5,-.1],[3.35,.2,.1],[3.35,1.8,.1]],C.nitrate,{count:10,speed:.11,size:.035});w.label([3.35,1.3,.1],'吸收与同化',{dx:-50,dy:2,size:11,pill:true});clay(w,s);w.stream([[-.7,-.65,-.3],[-1.5,-1.3,-.6],[-3.5,-.8,-.3]],C.organic,{count:5,speed:.08,size:.025});w.label([-1.6,-1.4,-.5],'微生物也可暂存无机氮',{dy:25,size:10})}
+}
+function ammonia(w,s){const p=urea(w,s),f=s.e.nh3Fraction,origin=[p[0]+.35,p[1]+.02,p[2]-.05],count=Math.max(1,Math.round(18*s.e.visualEscape));spherePool(w,p[0]-.5,p[1]-.35,p[2],'NH₄⁺',C.ammonium,.23);w.stream([[p[0]-.5,p[1]-.3,p[2]],origin],C.ammonia,{count:4,speed:.1,size:.03});w.label(origin,'NH₃（溶液）',{dx:45,dy:7,size:11,pill:true});
+ const top=[1.8,2.65,-.35],gasPath=[origin,[p[0]+.7,.5,-.32],[p[0]+1.2,1.4,-.35],top];w.stream(gasPath,C.ammonia,{count,speed:s.incorporated?.055:.11,size:.045,phase:.23,trail:true});w.label(top,'NH₃(g) → 空气',{dx:5,dy:-25,size:13,color:'#b37743',pill:true});
+ for(let i=0;i<3;i++){let y=1.25+i*.4;w.arrow([-.4,y,-.4],[1.2,y,-.4],'#b9b9a1')}w.label([1.2,1.2,-.4],'空气交换 / 风',{dx:22,dy:22,size:10,color:'#8e967d'});
+ if(s.incorporated){w.label([-2.35,-1.15,-.4],'土层滞留与缓冲',{dy:24,size:11,pill:true});w.stream([origin,[-1.7,-.8,-.4],[-2.6,-1.2,-.6]],C.ammonium,{count:5,speed:.06,size:.025})}
+ w.label([-4.2,.8,-.3],`施肥点 pH ${s.pH.toFixed(1)}`,{dy:-18,size:12,pill:true});
+}
+function rain(w,s){for(let i=0;i<5;i++)w.dot([-2.5+i*.72,2.65+Math.sin(i)*.1,-.4],.42,'#b8c8c9',{alpha:.5});for(let i=0;i<16;i++){const x=-3.2+(i*.619)%5.7,z=-.65+(i*.211)%.6,t=(w.time*.65+i/16)%1,y=2.45-t*2.4;w.line([[x,y,z],[x+.015,y-.16,z]],C.water,1.2,{alpha:.65})}}
+function leaching(w,s){rain(w,s);clay(w,s);spherePool(w,.9,-.75,-.65,'NO₃⁻',C.nitrate,.3);
+ const ground=s.e.rootBoundary;w.label([2.1,-1.65,-.65],s.drainage?'形成向下排水 ↓':'先补充根层蓄水',{dx:52,dy:-7,size:11,pill:true,color:'#528694'});
+ const path=s.drainage?[[.9,-.4,-.65],[1.05,-1.35,-.65],[1.25,ground-.2,-.65],[1.7,-2.7,-.65],[5.4,-3.05,-.65],[6,-3.05,-.65]]:[[.9,-.4,-.65],[1,-1,-.65],[1.1,-1.5,-.65]];
+ w.line(path,C.water,3,{alpha:.45});for(let i=0;i<10;i++){const t=(w.time*.13+i/10)%1,p=w.pathPoint(path,t);w.dot(p,.07,C.water,{alpha:.35});w.dot(p,.028,C.nitrate,{glow:true})}
+ w.cylinder(6,-3.7,-.65,.48,.9,'#b1d2d0',{n:16,alpha:.3,open:true});if(s.drainage){w.cylinder(6,-3.69,-.65,.44,.28,'#8dc5d3',{n:16,alpha:.45});for(let i=0;i<7;i++)w.dot([6+Math.sin(i*2)*.28,-3.48,-.65+Math.cos(i*2)*.27],.026,C.nitrate);w.label([6,-3,-.65],'含 NO₃⁻ 的渗漏液',{dy:-23,size:11,pill:true,color:'#42859c'})}else w.label([6,-3,-.65],'尚未形成该淋洗出口',{dy:-20,size:10,pill:true});
+}
+function denitrification(w,s){spherePool(w,1,-.8,-.5,'NO₃⁻',C.nitrate,.32);w.label([-.9,-.65,-.5],'有机碳',{dy:-27,size:11,pill:true});for(let i=0;i<4;i++)w.dot([-.9+Math.sin(i)*.16,-.7,-.5+Math.cos(i)*.14],.075,'#a6916b');for(let i=0;i<3;i++)w.dot([.0+i*.17,-.7,-.5+(i%2)*.18],.085,C.denit);
+ if(s.anoxic){w.box(0,.08,.2,10,.08,1.8,'#91bec8',{alpha:.25});w.label([-.1,.6,-.5],'积水 / 缺氧',{dy:-18,size:12,pill:true,color:'#758d9f'})}else{w.stream([[0,1.3,-.5],[0,.1,-.5],[0,-.5,-.5]],'#bdccd0',{count:6,speed:.15,size:.04});w.label([0,.7,-.5],'O₂ 充足',{dy:-10,size:12,pill:true,color:'#7e9ba6'})}
+ if(s.e.denitrificationActive){w.stream([[1,-.8,-.5],[.35,-.7,-.5],[0,-.65,-.5]],C.nitrate,{count:5,speed:.1,size:.035});w.stream([[-.9,-.7,-.5],[-.4,-.7,-.5],[0,-.65,-.5]],'#ad956c',{count:5,speed:.09,size:.03});w.stream([[0,-.65,-.5],[1.3,-.05,-.5],[2,1.1,-.5],[2.4,2.65,-.5]],C.denit,{count:9,speed:.1,size:.055});w.label([2.4,2.65,-.5],'N₂O / N₂ → 空气',{dy:-25,size:13,pill:true,color:'#8d749e'});w.label([.2,-1.35,-.5],'微生物还原 · 以 NO₃⁻ 作电子受体',{dy:18,size:10,pill:true})}else w.label([1.2,-1.3,-.5],s.anoxic?'本情景缺少可用电子供体':'有氧条件，反硝化路径弱化',{dy:20,size:11,pill:true});
+}
+function draw(w,s){base(w,s);const loss=NitrogenMechanisms.activeLoss(s.step,s.lossMode);if(loss==='volatilization')ammonia(w,s);else if(loss==='leaching')leaching(w,s);else if(loss==='denitrification')denitrification(w,s);else transformations(w,s)}
+window.NitrogenWorld={draw};
+})();
