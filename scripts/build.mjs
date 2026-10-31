@@ -11,7 +11,8 @@ const write=(p,s)=>{const dest=path.join(dist,p);fs.mkdirSync(path.dirname(dest)
 write('assets/catalog.js',`window.CATALOG=${JSON.stringify(catalog)};\n`);
 const ctx={};vm.createContext(ctx);vm.runInContext(read('assets/scenes.js'),ctx);
 for(const c of catalog){
-  write(c.cover,ctx.PlantScenes[c.id](c.id==='interaction'?{effect:20}:{},3,true));
+  if(c.cover.endsWith('.svg'))write(c.cover,ctx.PlantScenes[c.id](c.id==='interaction'?{effect:20}:{},3,true));
+  else if(!fs.existsSync(path.join(dist,c.cover)))throw new Error(`Missing course artwork: ${c.cover}`);
   if(c.id==='normal')continue;
   write(c.path,`<!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="${c.description}"><title>${c.title} · 植知</title><link rel="icon" href="../assets/leaf.svg"><link rel="stylesheet" href="../${asset('assets/lesson.css')}"></head><body data-lesson="${c.id}">

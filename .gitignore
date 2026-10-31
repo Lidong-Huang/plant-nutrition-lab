@@ -5,3 +5,4 @@ node_modules/
 .openai/.local/
 playwright-report/
 test-results/
+artwork/originals/
