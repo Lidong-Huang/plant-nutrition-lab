@@ -4,7 +4,7 @@
 
 把一个知识点，做成可以观察、操作、分步播放的演示。
 
-**在线入口（完成 GitHub Pages 部署后启用）：https://lidong-huang.github.io/plant-nutrition-lab/**
+**在线体验：[https://lidong-huang.github.io/plant-nutrition-lab/](https://lidong-huang.github.io/plant-nutrition-lab/)**
 
 ## 教学资源
 
