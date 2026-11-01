@@ -3,6 +3,7 @@ import path from 'node:path';
 import vm from 'node:vm';
 import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
+import {syncResourceDocs} from './sync-resource-docs.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const dist=path.join(root,'dist'),read=p=>fs.readFileSync(path.join(dist,p),'utf8');
 const asset=p=>p+'?v='+createHash('sha256').update(read(p)).digest('hex').slice(0,10);
@@ -36,6 +37,7 @@ for(const c of catalog){
 }
 write('normal.html',read('downloads/normal.html').replace('href="https://lidong-huang.github.io/plant-nutrition-lab/" class="home"','href="index.html" class="home"'));
 write('.nojekyll','');
+syncResourceDocs();
 console.log(`Built ${catalog.length} covers, ${catalog.length} lessons and ${catalog.length} offline files.`);
 
 

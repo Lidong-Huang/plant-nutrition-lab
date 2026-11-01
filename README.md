@@ -8,25 +8,24 @@
 
 ## 教学资源
 
-| 封面 | 课件 | 知识路径 | 文件 |
+已整理 **12 项定稿资源**：植物营养 3 项、培养试验 3 项、田间试验 2 项、试验统计 4 项。
+
+[按分类查看目录](courses/README.md) · [完整文件清单](docs/资源目录.md) · [下载整个资源库 ZIP](https://github.com/Lidong-Huang/plant-nutrition-lab/archive/refs/heads/main.zip)
+
+| 封面 | 课件（在线演示） | 知识路径 | 文件与说明 |
 | --- | --- | --- | --- |
-| <img src="dist/covers/uptake-v4.webp" width="190" alt="根系吸收"> | [根系如何吸收养分](https://lidong-huang.github.io/plant-nutrition-lab/lessons/uptake.html) | 土壤溶液 → 根表 → 吸收 → 运输 | [独立 HTML](dist/downloads/uptake.html) |
-| <img src="dist/covers/minimum-v3.webp" width="190" alt="最小养分律"> | [最小养分律](https://lidong-huang.github.io/plant-nutrition-lab/lessons/minimum.html) | 植株 → 短板 → 只补氮 → 补磷 → 协调供给 | [独立 HTML](dist/downloads/minimum.html) |
-| <img src="dist/covers/nitrogen-v2.webp" width="190" alt="氮素转化"> | [土壤中的氮素转化](https://lidong-huang.github.io/plant-nutrition-lab/lessons/nitrogen.html) | 矿化 / 水解 → 硝化 → 吸收 → 挥发 / 淋洗 / 反硝化 | [独立 HTML](dist/downloads/nitrogen.html) |
-| <img src="dist/covers/blocks-v2.webp" width="190" alt="区组田间试验"> | [随机区组设计](https://lidong-huang.github.io/plant-nutrition-lab/lessons/blocks.html) | 梯度 → 区组 → 随机 → 重复 | [独立 HTML](dist/downloads/blocks.html) |
-| <img src="dist/covers/splitplot-v2.webp" width="190" alt="裂区试验设计"> | [裂区试验设计](https://lidong-huang.github.io/plant-nutrition-lab/lessons/splitplot.html) | 灌水主区 → 施肥副区 → 两级随机 → 两层误差 | [独立 HTML](dist/downloads/splitplot.html) |
-| <img src="dist/covers/normal-v2.webp" width="190" alt="正态分布"> | [正态分布](https://lidong-huang.github.io/plant-nutrition-lab/lessons/normal.html) | 形状 → 对称 → 均值 → 标准差 → 拐点 → 概率 → 标准化 → 累积概率 → 积分 | [独立 HTML](dist/downloads/normal.html) |
-| <img src="dist/covers/t-normal-v1.svg" width="190" alt="t 与标准正态"> | [t 分布与标准正态分布](https://lidong-huang.github.io/plant-nutrition-lab/lessons/t-normal.html) | 形状 → 厚尾 → 样本量 → 趋近正态 → 双尾 0.05 → 临界值 | [独立 HTML](dist/downloads/t-normal.html) |
-| <img src="dist/covers/interaction-v2.webp" width="190" alt="交互作用"> | [氮 × 磷的交互作用](https://lidong-huang.github.io/plant-nutrition-lab/lessons/interaction.html) | 因素 → 无交互 → 正交互 → 对比 | [独立 HTML](dist/downloads/interaction.html) |
-| <img src="dist/covers/soil-culture-v1.jpg" width="190" alt="土培 · 玉米磷肥效应"> | [土培 · 玉米磷肥效应](https://lidong-huang.github.io/plant-nutrition-lab/lessons/soil-culture.html) | 问题与对照 → 取土与测定 → 磷处理与配平 → 装盆与定苗 → 随机与重复 → 称重与补水 → 成熟收获与千粒重 → 计算与解释 | [独立 HTML](dist/downloads/soil-culture.html) |
-| <img src="dist/covers/sand-culture-v1.jpg" width="190" alt="砂培 · 自动砂面浇灌"> | [砂培 · 自动砂面浇灌](https://lidong-huang.github.io/plant-nutrition-lab/lessons/sand-culture.html) | 问题与处理 → 洗砂与装盆 → 配液与配平 → 辨认液路 → 加压喷灌 → 卸压与补液 → 随机与养护 → 成熟收获与千粒重 → 比较与结论 | [独立 HTML](dist/downloads/sand-culture.html) |
-| <img src="dist/covers/hydro-culture-v1.jpg" width="190" alt="水培 · 霍格兰供磷试验"> | [水培 · 霍格兰供磷试验](https://lidong-huang.github.io/plant-nutrition-lab/lessons/hydro-culture.html) | 问题与对照 → 配制霍格兰液 → 磷与钾配平 → 育苗与定植 → 随机与重复 → 通气与换液 → 成熟收获与千粒重 → 吸磷量与解释 | [独立 HTML](dist/downloads/hydro-culture.html) |
-
-三个培养资源的教材对应、试验步骤、磷钾配平与霍格兰配方见 [磷效应培养试验](docs/磷效应培养试验.md)。
-
-正态分布的换元、概率面积与小矩形积分见 [标准化与积分说明](docs/正态分布标准化与积分.md)。
-
-t 分布的自由度、样本量与双尾概率见 [t 与标准正态比较说明](docs/t分布与标准正态.md)。
+| <img src="dist/covers/uptake-v4.webp" width="190" alt="根系如何吸收养分"> | [根系如何吸收养分](https://lidong-huang.github.io/plant-nutrition-lab/lessons/uptake.html) | 土壤 → 根表 → 吸收 → 运输 | [独立 HTML](dist/downloads/uptake.html) · [说明](courses/uptake/README.md) |
+| <img src="dist/covers/minimum-v3.webp" width="190" alt="最小养分律"> | [最小养分律](https://lidong-huang.github.io/plant-nutrition-lab/lessons/minimum.html) | 植株生长 → 木桶短板 → 限制转移 | [独立 HTML](dist/downloads/minimum.html) · [说明](courses/minimum/README.md) |
+| <img src="dist/covers/nitrogen-v2.webp" width="190" alt="土壤中的氮素转化"> | [土壤中的氮素转化](https://lidong-huang.github.io/plant-nutrition-lab/lessons/nitrogen.html) | 矿化与硝化 → 吸收 → 三类氮损失 | [独立 HTML](dist/downloads/nitrogen.html) · [说明](courses/nitrogen/README.md) |
+| <img src="dist/covers/blocks-v2.webp" width="190" alt="随机区组设计"> | [随机区组设计](https://lidong-huang.github.io/plant-nutrition-lab/lessons/blocks.html) | 肥力梯度 → 区组 → 随机与重复 | [独立 HTML](dist/downloads/blocks.html) · [说明](courses/blocks/README.md) |
+| <img src="dist/covers/splitplot-v2.webp" width="190" alt="裂区试验设计"> | [裂区试验设计](https://lidong-huang.github.io/plant-nutrition-lab/lessons/splitplot.html) | 灌水主区 → 施肥副区 → 两层误差 | [独立 HTML](dist/downloads/splitplot.html) · [说明](courses/splitplot/README.md) |
+| <img src="dist/covers/normal-v2.webp" width="190" alt="正态分布"> | [正态分布](https://lidong-huang.github.io/plant-nutrition-lab/lessons/normal.html) | 曲线 → 标准化 → 累积概率与积分 | [独立 HTML](dist/downloads/normal.html) · [说明](courses/normal/README.md) |
+| <img src="dist/covers/t-normal-v1.svg" width="190" alt="t 分布与标准正态分布"> | [t 分布与标准正态分布](https://lidong-huang.github.io/plant-nutrition-lab/lessons/t-normal.html) | 形状 → 自由度 → 双尾 0.05 → 临界值 | [独立 HTML](dist/downloads/t-normal.html) · [说明](courses/t-normal/README.md) |
+| <img src="dist/covers/interaction-v2.webp" width="190" alt="氮 × 磷的交互作用"> | [氮 × 磷的交互作用](https://lidong-huang.github.io/plant-nutrition-lab/lessons/interaction.html) | 两个因素 → 交互作用 → 对比 | [独立 HTML](dist/downloads/interaction.html) · [说明](courses/interaction/README.md) |
+| <img src="dist/covers/soil-culture-v1.jpg" width="190" alt="土培 · 玉米磷肥效应"> | [土培 · 玉米磷肥效应](https://lidong-huang.github.io/plant-nutrition-lab/lessons/soil-culture.html) | 装盆与磷处理 → 养护 → 收获评价 | [独立 HTML](dist/downloads/soil-culture.html) · [说明](courses/soil-culture/README.md) |
+| <img src="dist/covers/sand-culture-v1.jpg" width="190" alt="砂培 · 自动砂面浇灌"> | [砂培 · 自动砂面浇灌](https://lidong-huang.github.io/plant-nutrition-lab/lessons/sand-culture.html) | 洗砂与配液 → 自动浇灌 → 收获评价 | [独立 HTML](dist/downloads/sand-culture.html) · [说明](courses/sand-culture/README.md) |
+| <img src="dist/covers/hydro-culture-v1.jpg" width="190" alt="水培 · 霍格兰供磷试验"> | [水培 · 霍格兰供磷试验](https://lidong-huang.github.io/plant-nutrition-lab/lessons/hydro-culture.html) | 霍格兰配液 → pH 与通气 → 供磷评价 | [独立 HTML](dist/downloads/hydro-culture.html) · [说明](courses/hydro-culture/README.md) |
+| <img src="dist/covers/measurement-error-v1.svg" width="190" alt="误差 · 准确度与精确度"> | [误差 · 准确度与精确度](https://lidong-huang.github.io/plant-nutrition-lab/lessons/measurement-error.html) | 农业测量 → 打靶 → 两类误差 → 分布 | [独立 HTML](dist/downloads/measurement-error.html) · [说明](courses/measurement-error/README.md) |
 
 ## 使用
 
@@ -40,6 +39,7 @@ t 分布的自由度、样本量与双尾概率见 [t 与标准正态比较说�
 ## 目录
 
 ```text
+courses/             # 各资源独立目录与 README
 dist/
   index.html          # 资源首页
   catalog.json        # 课程目录
@@ -63,7 +63,5 @@ docs/                 # 发布、内容依据与维护说明
 
 
 
-
-新增资源：[误差 · 准确度与精确度](https://lidong-huang.github.io/plant-nutrition-lab/lessons/measurement-error.html)：农业测量 → 观测值与真值 → 打靶与逐次记录 → 两类误差 → 准确与精确 → 分布平移 → 随机波动与重复 → 试验控制。详见[知识路径与模型说明](docs/误差与测量.md)。
 
 有合作需要可以联系我：[ldhuangnz@163.com](mailto:ldhuangnz@163.com)。
