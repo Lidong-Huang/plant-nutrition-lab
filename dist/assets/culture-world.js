@@ -2,7 +2,7 @@
 (()=>{'use strict';const M=CultureModels,TAU=Math.PI*2,blue='#73b2be',air='#c59a5a';
 function pipe(w,pts,color='#aab8a7',width=4){w.line(pts,color,width);w.line(pts,'#e4eadd',.6,{alpha:.7})}
 function ring(w,x,y,z,r,color='#d0d5c2',width=2){const a=Array.from({length:49},(_,i)=>[x+Math.cos(i/48*TAU)*r,y,z+Math.sin(i/48*TAU)*r]);w.line(a,color,width)}
-function bench(w,level=-.3){w.box(0,level,.1,13,.25,7,'#dce0ce');for(const x of [-5,5])for(const z of [-2.5,2.5])w.box(x,level-1.1,z,.15,1.1,.15,'#b9c4b0');w.line([[-6.2,level+.3,2.9],[6.2,level+.3,2.9]],'#f1ede0',2)}
+function bench(w,level=-.3){if(w.hydroLabState?.type==='hydro'&&typeof HydroLab!=='undefined')return HydroLab.bench(w,w.hydroLabState);w.box(0,level,.1,13,.25,7,'#dce0ce');for(const x of [-5,5])for(const z of [-2.5,2.5])w.box(x,level-1.1,z,.15,1.1,.15,'#b9c4b0');w.line([[-6.2,level+.3,2.9],[6.2,level+.3,2.9]],'#f1ede0',2)}
 function container(w,x,y,z,type,{r=1.25,height=1.8,treatment=2}={}){const top=CultureEquipment.pot(w,x,y,z,type,{r,height});w.label([x,y+.13,z-r],M.treatments[treatment],{size:12,pill:true,color:M.colors[treatment],dy:18});return top}
 function plant(w,x,top,z,type,t,{scale=.78,response=false,day=28}={}){const g=response?(.42+.58*(day/28))*(.67+.165*t):.72;MaizeUptake.drawPlant(w,{x,y:top+.09,z,scale,shootScale:g,rootScale:.59});const count=type==='soil'?2+t*3:t*4;if(count)w.stream([[x+.78,top-1.12,z-.38],[x+.43,top-.6,z-.18],[x,top+.05,z],[x,top+.63*scale,z]],'#65acb8',{count,size:.023,speed:.075,trail:false});}
 function bubbles(w,x,y,z,height=1.4){for(let i=0;i<15;i++){const f=(w.time*.24+i/15)%1;w.dot([x+.14*Math.sin(i*2+f*4),y+f*height,z+.1*Math.cos(i)],.027+(i%3)*.01,'#d4ece6',{alpha:.75})}}
