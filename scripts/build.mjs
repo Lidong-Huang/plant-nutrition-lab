@@ -14,7 +14,8 @@ for(const c of catalog){
   if(c.cover.endsWith('.svg')&&c.id!=='measurement-error')write(c.cover,ctx.PlantScenes[c.id](c.id==='interaction'?{effect:20}:{},3,true));
   else if(!fs.existsSync(path.join(dist,c.cover)))throw new Error(`Missing course artwork: ${c.cover}`);
   if(c.id==='normal')continue;
-  const scripts=c.id==='splitplot'?['assets/catalog.js','assets/world-engine.js','assets/splitplot-model.js','assets/splitplot-world.js','assets/splitplot.js']:['assets/catalog.js','assets/world-engine.js','assets/world-scenes.js','assets/lesson.js'];
+  const scripts=c.id==='splitplot'?['assets/catalog.js','assets/world-engine.js','assets/splitplot-model.js','assets/field-assets.js','assets/splitplot-world.js','assets/splitplot.js']:['assets/catalog.js','assets/world-engine.js','assets/world-scenes.js','assets/lesson.js'];
+  if(c.id==='blocks')scripts.splice(2,0,'assets/field-assets.js');
   if(c.id==='measurement-error')scripts.splice(2,scripts.length-2,'assets/error-model.js','assets/error-lab.js');
   if(c.id==='minimum')scripts.splice(scripts.length-1,0,'assets/minimum-growth.js');
   if(c.id.endsWith('-culture'))scripts.splice(2,scripts.length-2,'assets/maize-uptake.js','assets/culture-model.js','assets/culture-equipment.js','assets/maize-grain-geometry.js','assets/culture-liquid.js','assets/culture-world.js','assets/culture-practical.js','assets/maize-harvest.js','assets/hydro-lab.js','assets/culture.js');

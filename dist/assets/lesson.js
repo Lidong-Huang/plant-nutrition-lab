@@ -3,8 +3,8 @@ const $=id=>document.getElementById(id),id=document.body.dataset.lesson,c=CATALO
 const initialRows=[[0,1,2,3],[2,0,3,1],[1,3,0,2]];
 const state={step:0,values:{n:80,p:35,k:70,effect:0},targets:{n:80,p:35,k:70,effect:0},rows:initialRows.map(r=>[...r]),positions:initialRows.map(r=>[0,1,2,3].map(i=>r.indexOf(i))),speed:1};
 const hints={uptake:['玉米为须根系：节根分出侧根，细根可形成根毛。','养分随质流、扩散等过程到达吸收根表面。','根毛是表皮细胞的伸长；离子跨膜进入后运向中柱。','进入木质部，随水分运向地上部。'],minimum:['比较相对供给，而非绝对用量。','最短的木板，决定水位。','只补氮，仍受缺磷限制。','补磷后，钾成为新的限制养分。','协调供给，提高相对生长潜力。'],nitrogen:['有机氮：储存在有机质与残体中。','矿化：有机氮 → NH₄⁺。','硝化：NH₄⁺ → NO₂⁻ → NO₃⁻。','吸收、淋失与反硝化，形成不同去向。'],blocks:['同一块田，肥力也可能不同。','沿梯度分层，区组内条件相近。','每个区组内，独立随机排列全部处理。','3 个区组重复，控制环境差异。'],interaction:['氮 × 磷：四个组合，四组植株。','两条线平行：氮效应不随磷改变。','两条线不平行：出现交互作用。','交互对比不为零；显著性仍需误差估计。']};
-const extents={uptake:12,minimum:13,nitrogen:15,blocks:17,interaction:16};
-const world=new PlantWorld.World($('scene'),{extent:extents[id],target:id==='uptake'?.5:id==='nitrogen'?.65:1.15,pitch:id==='blocks'?.65:.39,yaw:id==='blocks'?-.35:-.45});
+const extents={uptake:12,minimum:13,nitrogen:15,blocks:20,interaction:16};
+const world=new PlantWorld.World($('scene'),{extent:extents[id],target:id==='uptake'?.5:id==='nitrogen'?.65:id==='blocks'?.25:1.15,pitch:id==='blocks'?.65:.39,yaw:id==='blocks'?-.35:-.45});
 world.draw=w=>TeachingWorlds[id](w,state);
 const motionButton=$('motion'),rotateButton=$('rotate');
 world.onInteract=()=>{rotateButton.setAttribute('aria-pressed','false')};

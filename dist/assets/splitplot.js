@@ -2,7 +2,7 @@
 const $=id=>document.getElementById(id),M=SplitPlotModel,c=CATALOG.find(c=>c.id==='splitplot');
 const hints=['灌水难改变，先在较大的主区实施；施肥可以细分。','每个区组分成两个主区，用区组控制田间差异。','每区组内随机分配 W1、W2，一次分配决定整个主区。','每个主区分三份，再独立随机分配 F1、F2、F3。','整主区灌水，副区分别施肥；田埂用于隔离水分。','点击副区查看模拟响应；比较时尊重两级实验单元。','灌水用主区误差；施肥及交互作用用副区误差。'];
 const state={step:0,design:M.design(3),data:M.observations(3),mainPositions:Array.from({length:3},()=>[0,1]),subPositions:Array.from({length:3},()=>Array.from({length:2},()=>[0,1,2])),compare:'water',selected:null,hitRegions:[]};
-const stats=M.anova(state.data),world=new PlantWorld.World($('scene'),{extent:19.2,target:.7,pitch:.66,yaw:-.3});
+const stats=M.anova(state.data),world=new PlantWorld.World($('scene'),{extent:20.5,target:.7,pitch:.66,yaw:-.3});
 world.draw=w=>{state.hitRegions=[];SplitPlotWorld.draw(w,state)};
 world.update=dt=>{state.design.forEach((d,r)=>{for(let water=0;water<2;water++){const target=state.step<2?water:d.water.indexOf(water);state.mainPositions[r][water]+=(target-state.mainPositions[r][water])*Math.min(1,dt*4.5);for(let f=0;f<3;f++){const col=state.step<3?f:d.fertilizer[water].indexOf(f);state.subPositions[r][water][f]+=(col-state.subPositions[r][water][f])*Math.min(1,dt*5)}}})};
 world.onInteract=()=>{$('rotate').setAttribute('aria-pressed','false')};
