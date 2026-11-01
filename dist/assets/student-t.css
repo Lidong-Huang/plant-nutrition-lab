@@ -1,0 +1,22 @@
+[hidden]{display:none!important}
+.student-course{grid-template-rows:72px 65px minmax(0,1fr) 102px}.student-course .steps{max-width:1060px}.student-course .steps button{white-space:nowrap;letter-spacing:0}
+.download{font-size:11px;border:1px solid #dce5df;border-radius:5px;padding:7px 11px;color:#839580}
+.t-formula{position:absolute;top:45px;left:15px;right:15px;text-align:center;font-size:22px;pointer-events:none;color:#315e49}.t-formula math{font-family:'Cambria Math',serif}
+.t-numeric{position:absolute;left:15px;right:15px;top:87px;text-align:center;font-size:12px;color:#7e8d78;font-variant-numeric:tabular-nums;pointer-events:none}
+.t-legend{position:absolute;right:30px;top:19px;display:flex;gap:18px;font-size:11px;color:#7b8d7c;pointer-events:none}.t-legend span{display:flex;gap:6px;align-items:center}.t-legend i{width:19px;height:3px;border-radius:3px}.z-key{background:#237e5c}.t-key{background:#b9863c}.t-legend b{font-weight:400}
+.t-actions{position:absolute;bottom:52px;left:15px;right:15px;display:flex;justify-content:center;gap:7px;flex-wrap:wrap}.t-actions button{border:1px solid #cbdcc9;background:#f6faf1;border-radius:5px;padding:7px 11px;font-size:11px;color:#557758}.t-actions button[aria-pressed=true]{background:#e5ead5;border-color:#aebe95;color:#456543}
+.t-caption{position:absolute;bottom:14px;left:10%;right:10%;text-align:center;font-size:12px;line-height:1.7;color:#75896f;margin:0;pointer-events:none}.student-course .view-hint{font-size:9px;left:20px;bottom:15px}.student-course .view-toggle{bottom:10px;right:18px}
+.student-course .controls{max-width:1000px;gap:20px}.student-course .controls label{font-family:inherit;font-size:12px;gap:10px}.student-course .controls input{width:clamp(90px,16vw,230px)}.student-course .controls output{font-size:12px;min-width:26px}.df-chip{font-size:11px;color:#85957f;white-space:nowrap}.df-chip b{font-weight:500;color:#53794f}
+@media(max-width:1000px){.identity{display:none}.t-legend{right:20px;gap:12px;font-size:10px}.student-course .controls{gap:12px}.student-course .controls input{width:13vw}.student-course .bottom{gap:15px}.student-course .top{gap:18px}}
+@media(max-width:700px){
+ html:has(body.student-course){height:auto;overflow:auto}
+ body.student-course{height:auto;min-height:100dvh;overflow:visible;grid-template-rows:58px 52px auto;padding-bottom:140px}
+ .student-course .top{gap:10px;padding:0 14px}.student-course .top h1{font-size:16px;letter-spacing:0}.student-course .home span,.student-course .download{display:none}.student-course .tools{gap:5px}.student-course .tools button{font-size:10px;padding:6px 7px}
+ .student-course .steps{width:calc(100% - 16px);margin-inline:8px;gap:2px;overflow-x:auto;scrollbar-width:thin}.student-course .steps button{flex:0 0 auto;padding:10px 13px;font-size:11px}.student-course .steps button span{display:none}
+ .student-course .stage{height:650px}.student-course[data-step="4"] .stage{height:800px}.student-course[data-step="5"] .stage{height:720px}
+ .student-course .stage-corner{top:15px;left:18px;font-size:10px;letter-spacing:1px}.t-legend{top:39px;left:12px;right:12px;justify-content:center;font-size:10px}
+ .t-formula{top:73px;font-size:17px}.t-numeric{top:113px;font-size:10px;line-height:1.8;left:10px;right:10px}.t-actions{bottom:61px;gap:5px;left:10px;right:10px}.t-actions button{padding:7px 9px;font-size:10px}.t-caption{font-size:10px;bottom:12px;left:8%;right:8%;max-width:82%;margin:auto}.student-course .view-hint{display:none}
+ .student-course .bottom{position:fixed;left:0;right:0;bottom:0;display:grid;grid-template-columns:36px 1fr 36px;grid-template-rows:86px 40px;height:140px;padding:5px 15px;gap:0 10px;box-shadow:0 -3px 12px #66795b0b}.student-course .controls{grid-column:1/-1;grid-row:1;display:flex;justify-content:center;flex-wrap:wrap;align-content:center;gap:8px;width:100%}.student-course .controls label{flex:0 1 75%;font-size:11px}.student-course .controls input{width:100%;min-width:40px}.student-course .df-chip{font-size:10px}.student-course .navbutton{grid-row:2;grid-column:1;height:30px}.student-course .navbutton.next{grid-column:3}.student-course .playback{grid-row:2;grid-column:2;justify-content:center}.student-course[data-step="5"] .df-chip{display:none}
+}
+
+.student-course .controls label{white-space:nowrap}.student-course .controls input{flex:1;min-width:40px}

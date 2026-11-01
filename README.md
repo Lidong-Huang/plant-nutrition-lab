@@ -16,6 +16,7 @@
 | <img src="dist/covers/blocks-v2.webp" width="190" alt="区组田间试验"> | [随机区组设计](https://lidong-huang.github.io/plant-nutrition-lab/lessons/blocks.html) | 梯度 → 区组 → 随机 → 重复 | [独立 HTML](dist/downloads/blocks.html) |
 | <img src="dist/covers/splitplot-v2.webp" width="190" alt="裂区试验设计"> | [裂区试验设计](https://lidong-huang.github.io/plant-nutrition-lab/lessons/splitplot.html) | 灌水主区 → 施肥副区 → 两级随机 → 两层误差 | [独立 HTML](dist/downloads/splitplot.html) |
 | <img src="dist/covers/normal-v2.webp" width="190" alt="正态分布"> | [正态分布](https://lidong-huang.github.io/plant-nutrition-lab/lessons/normal.html) | 形状 → 对称 → 均值 → 标准差 → 拐点 → 概率 → 标准化 → 累积概率 → 积分 | [独立 HTML](dist/downloads/normal.html) |
+| <img src="dist/covers/t-normal-v1.svg" width="190" alt="t 与标准正态"> | [t 分布与标准正态分布](https://lidong-huang.github.io/plant-nutrition-lab/lessons/t-normal.html) | 形状 → 厚尾 → 样本量 → 趋近正态 → 双尾 0.05 → 临界值 | [独立 HTML](dist/downloads/t-normal.html) |
 | <img src="dist/covers/interaction-v2.webp" width="190" alt="交互作用"> | [氮 × 磷的交互作用](https://lidong-huang.github.io/plant-nutrition-lab/lessons/interaction.html) | 因素 → 无交互 → 正交互 → 对比 | [独立 HTML](dist/downloads/interaction.html) |
 | <img src="dist/covers/soil-culture-v1.jpg" width="190" alt="土培 · 玉米磷肥效应"> | [土培 · 玉米磷肥效应](https://lidong-huang.github.io/plant-nutrition-lab/lessons/soil-culture.html) | 问题与对照 → 取土与测定 → 磷处理与配平 → 装盆与定苗 → 随机与重复 → 称重与补水 → 成熟收获与千粒重 → 计算与解释 | [独立 HTML](dist/downloads/soil-culture.html) |
 | <img src="dist/covers/sand-culture-v1.jpg" width="190" alt="砂培 · 自动砂面浇灌"> | [砂培 · 自动砂面浇灌](https://lidong-huang.github.io/plant-nutrition-lab/lessons/sand-culture.html) | 问题与处理 → 洗砂与装盆 → 配液与配平 → 辨认液路 → 加压喷灌 → 卸压与补液 → 随机与养护 → 成熟收获与千粒重 → 比较与结论 | [独立 HTML](dist/downloads/sand-culture.html) |
@@ -24,6 +25,8 @@
 三个培养资源的教材对应、试验步骤、磷钾配平与霍格兰配方见 [磷效应培养试验](docs/磷效应培养试验.md)。
 
 正态分布的换元、概率面积与小矩形积分见 [标准化与积分说明](docs/正态分布标准化与积分.md)。
+
+t 分布的自由度、样本量与双尾概率见 [t 与标准正态比较说明](docs/t分布与标准正态.md)。
 
 ## 使用
 

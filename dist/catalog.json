@@ -116,6 +116,25 @@
     "accent": "#b2b8e6"
   },
   {
+    "id": "t-normal",
+    "title": "t 分布与标准正态分布",
+    "category": "试验统计",
+    "chapter": "形状、自由度与双尾概率",
+    "question": "小样本下，为什么需要更宽的临界区间？",
+    "description": "叠加两条曲线，改变样本量，比较厚尾与双尾 0.05 对应的临界区间。",
+    "steps": [
+      "形状",
+      "厚尾",
+      "样本量",
+      "趋近正态",
+      "双尾 0.05",
+      "临界值"
+    ],
+    "cover": "covers/t-normal-v1.svg",
+    "path": "lessons/t-normal.html",
+    "accent": "#c5ad7b"
+  },
+  {
     "id": "interaction",
     "title": "氮 × 磷的交互作用",
     "category": "试验统计",
