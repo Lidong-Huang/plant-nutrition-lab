@@ -11,7 +11,7 @@
 | 封面 | 课件 | 知识路径 | 文件 |
 | --- | --- | --- | --- |
 | <img src="dist/covers/uptake-v3.webp" width="190" alt="根系吸收"> | [根系如何吸收养分](https://lidong-huang.github.io/plant-nutrition-lab/lessons/uptake.html) | 土壤溶液 → 根表 → 吸收 → 运输 | [独立 HTML](dist/downloads/uptake.html) |
-| <img src="dist/covers/minimum-v2.webp" width="190" alt="最小养分律"> | [最小养分律](https://lidong-huang.github.io/plant-nutrition-lab/lessons/minimum.html) | 植株 → 短板 → 只补氮 → 补磷 → 协调供给 | [独立 HTML](dist/downloads/minimum.html) |
+| <img src="dist/covers/minimum-v3.webp" width="190" alt="最小养分律"> | [最小养分律](https://lidong-huang.github.io/plant-nutrition-lab/lessons/minimum.html) | 植株 → 短板 → 只补氮 → 补磷 → 协调供给 | [独立 HTML](dist/downloads/minimum.html) |
 | <img src="dist/covers/nitrogen-v2.webp" width="190" alt="氮素转化"> | [土壤中的氮素转化](https://lidong-huang.github.io/plant-nutrition-lab/lessons/nitrogen.html) | 矿化 / 水解 → 硝化 → 吸收 → 挥发 / 淋洗 / 反硝化 | [独立 HTML](dist/downloads/nitrogen.html) |
 | <img src="dist/covers/blocks-v2.webp" width="190" alt="区组田间试验"> | [随机区组设计](https://lidong-huang.github.io/plant-nutrition-lab/lessons/blocks.html) | 梯度 → 区组 → 随机 → 重复 | [独立 HTML](dist/downloads/blocks.html) |
 | <img src="dist/covers/splitplot-v2.webp" width="190" alt="裂区试验设计"> | [裂区试验设计](https://lidong-huang.github.io/plant-nutrition-lab/lessons/splitplot.html) | 灌水主区 → 施肥副区 → 两级随机 → 两层误差 | [独立 HTML](dist/downloads/splitplot.html) |
