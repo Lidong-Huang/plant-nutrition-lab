@@ -99,14 +99,17 @@
     "category": "试验统计",
     "chapter": "分布与概率",
     "question": "测量值的波动，为什么常呈现一条钟形曲线？",
-    "description": "旋转曲线，探索均值、标准差、拐点与概率面积。",
+    "description": "旋转曲线，从均值与标准差走向标准化、累积概率与积分面积。",
     "steps": [
       "形状",
       "对称",
       "均值",
       "标准差",
       "拐点",
-      "概率"
+      "概率",
+      "标准化",
+      "累积概率",
+      "积分"
     ],
     "cover": "covers/normal-v2.webp",
     "path": "lessons/normal.html",

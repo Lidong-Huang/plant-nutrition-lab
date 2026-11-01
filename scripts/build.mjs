@@ -13,7 +13,7 @@ const ctx={};vm.createContext(ctx);vm.runInContext(read('assets/scenes.js'),ctx)
 for(const c of catalog){
   if(c.cover.endsWith('.svg')&&c.id!=='measurement-error')write(c.cover,ctx.PlantScenes[c.id](c.id==='interaction'?{effect:20}:{},3,true));
   else if(!fs.existsSync(path.join(dist,c.cover)))throw new Error(`Missing course artwork: ${c.cover}`);
-  if(c.id==='normal')continue;
+  if(c.id==='normal'){write(c.path,read(c.path).replace(/((?:href|src)="\.\.\/)(assets\/[^"?]+)(?:\?[^"]*)?"/g,(_,prefix,p)=>prefix+asset(p)+'"'));continue;}
   const scripts=c.id==='splitplot'?['assets/catalog.js','assets/world-engine.js','assets/splitplot-model.js','assets/field-assets.js','assets/splitplot-world.js','assets/splitplot.js']:['assets/catalog.js','assets/world-engine.js','assets/world-scenes.js','assets/lesson.js'];
   if(c.id==='blocks')scripts.splice(2,0,'assets/field-assets.js');
   if(c.id==='measurement-error')scripts.splice(2,scripts.length-2,'assets/error-model.js','assets/error-lab.js');
@@ -34,6 +34,7 @@ for(const c of catalog){
   html=html.replaceAll('../index.html#library','https://lidong-huang.github.io/plant-nutrition-lab/#library').replaceAll('../index.html','https://lidong-huang.github.io/plant-nutrition-lab/');
   write(`downloads/${c.id}.html`,html);
 }
+write('normal.html',read('downloads/normal.html').replace('href="https://lidong-huang.github.io/plant-nutrition-lab/" class="home"','href="index.html" class="home"'));
 write('.nojekyll','');
 console.log(`Built ${catalog.length} covers, ${catalog.length} lessons and ${catalog.length} offline files.`);
 

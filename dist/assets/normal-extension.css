@@ -1,0 +1,32 @@
+[hidden]{display:none!important}
+.steps{max-width:1160px;overflow-x:auto;scrollbar-width:thin}.steps button{white-space:nowrap;letter-spacing:0}
+.normal-extension{position:absolute;inset:0;pointer-events:none;color:#315e49}
+.normal-formula{position:absolute;top:43px;left:15px;right:15px;text-align:center;font-size:22px;min-height:30px}
+.normal-formula math{font-family:'Cambria Math','STIX Two Math',serif}
+.normal-numeric{position:absolute;top:87px;left:15px;right:15px;text-align:center;font-size:12px;font-variant-numeric:tabular-nums;color:#6a846d}
+.normal-actions{position:absolute;bottom:41px;left:15px;right:15px;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;pointer-events:auto}
+.normal-actions button{background:#f6faf1;border:1px solid #cbdcc9;border-radius:5px;font-size:11px;padding:7px 12px;color:#567b5c}
+.normal-actions button[aria-pressed=true]{background:#dcebd9;color:#26744d;border-color:#a8c6a4}
+.normal-note{position:absolute;bottom:6px;left:4%;right:4%;text-align:center;font-size:11px;line-height:1.65;color:#83947f;margin:0 auto;max-width:85%}
+body.normal-extended{grid-template-rows:72px 65px minmax(0,1fr) 104px}
+.normal-extended .controls{max-width:900px;gap:20px}.normal-extended .controls input{width:clamp(65px,11vw,160px)}
+.normal-extended .controls #z-control{font-size:18px}.normal-extended #z-value{min-width:36px}
+.normal-extended .view-hint{display:none}.normal-extended .view-toggle{bottom:7px;right:16px}
+@media(max-width:1000px){.steps{width:calc(100% - 24px);gap:1px}.steps button{font-size:12px;padding:10px 7px}.steps button span{display:none}.normal-extended .bottom{gap:12px}.normal-extended .controls{gap:12px}.normal-extended .controls label{gap:7px}.normal-numeric{font-size:11px}}
+@media(max-width:720px){
+ .steps{width:calc(100% - 16px);margin-inline:8px;max-width:none}.steps button{flex:0 0 auto;padding:10px 14px;font-size:12px}
+ html:has(body.normal-extended){height:auto;overflow:auto}
+ body.normal-extended{height:auto;min-height:100dvh;overflow:visible;grid-template-rows:58px 50px auto;padding-bottom:156px}
+ .normal-extended .stage{height:780px;overflow:hidden}.normal-extended[data-normal-step="7"] .stage,.normal-extended[data-normal-step="8"] .stage{height:720px}
+ .normal-extended .stage-corner{top:16px;font-size:10px}
+ .normal-extended .normal-formula{font-size:17px;top:45px}.normal-extended .normal-numeric{font-size:10px;line-height:1.8;top:89px;left:12px;right:12px}
+ .normal-extended .normal-actions{bottom:41px;gap:5px;left:8px;right:8px}.normal-actions button{padding:7px 9px;font-size:10px}
+ .normal-extended .normal-note{font-size:10px;bottom:5px;max-width:82%;left:2%;right:2%}
+ .normal-extended .bottom{position:fixed;left:0;right:0;bottom:0;height:156px;display:grid;grid-template-columns:36px 1fr 36px;grid-template-rows:102px 40px;padding:5px 16px;gap:0 10px;box-shadow:0 -3px 12px #66795b0b}
+ .normal-extended .controls{grid-row:1;grid-column:1/-1;display:flex;flex-wrap:wrap;gap:7px 14px;align-content:center;justify-content:center;width:100%}
+ .normal-extended .controls label{flex:0 1 46%;font-size:16px;gap:7px}.normal-extended .controls input{width:100%;min-width:35px}.normal-extended .controls output{font-size:11px;min-width:26px}.normal-extended .separator{display:none}
+ .normal-extended .controls #z-control{flex-basis:75%;font-size:16px}.normal-extended .navbutton{grid-row:2;grid-column:1;height:30px}.normal-extended .navbutton.next{grid-column:3}.normal-extended .playback{grid-row:2;grid-column:2;justify-content:center}
+}
+
+.normal-sum-row{margin-top:5px}.normal-sum-formula{font-size:17px;margin-top:5px}body[data-normal-step="8"] .normal-numeric{top:123px}.standard-identity{font-size:12px;color:#80927b}
+@media(max-width:720px){.normal-sum-formula{font-size:15px}.normal-extended[data-normal-step="7"],.normal-extended[data-normal-step="8"]{padding-bottom:122px}.normal-extended[data-normal-step="7"] .bottom,.normal-extended[data-normal-step="8"] .bottom{height:122px;grid-template-rows:68px 40px}.normal-extended .standard-identity{font-size:11px}.normal-extended[data-normal-step="7"] #z-control,.normal-extended[data-normal-step="8"] #z-control{flex-basis:60%}}

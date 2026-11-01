@@ -1,0 +1,11 @@
+import fs from 'node:fs';import vm from 'node:vm';import assert from 'node:assert/strict';
+const read=p=>fs.readFileSync(new URL('../'+p,import.meta.url),'utf8'),context={};vm.createContext(context);vm.runInContext(read('dist/assets/math.js'),context);const M=context.NormalMath,near=(a,b,t=1e-8)=>assert(Math.abs(a-b)<t,`${a} != ${b}`);
+// Independent tabulated probabilities and the density-to-CDF derivative.
+for(const [z,p] of [[-3,.00134989803163],[-1.96,.02499789514822],[0,.5],[1,.84134474606854],[1.96,.97500210485178],[3,.99865010196837]])near(M.cdf(z),p,8e-8);
+for(let z=-3;z<=3;z+=.1){assert(M.cdf(z+.01)>M.cdf(z));near((M.cdf(z+.001)-M.cdf(z-.001))/.002,M.pdf(z),3e-6);near(M.cdf(z)+M.cdf(-z),1,2e-9)}
+for(const mu of [160,200,240])for(const sigma of [10,20,35])for(const z of [-3,-1,0,1.96,3]){const x=mu+sigma*z;near(M.standardize(x,mu,sigma),z);near(sigma*M.pdf(x,mu,sigma),M.pdf(z));}
+// A refined midpoint sum plus the unshown left tail approaches the CDF.
+for(const z of [-3,-1.96,0,1,1.96,3]){const rough=M.midpoint(-4,z,8),fine=M.midpoint(-4,z,160),tail=M.cdf(-4),target=M.cdf(z);assert.equal(fine.rectangles.length,160);near(fine.rectangles.reduce((s,v)=>s+v.area,0),fine.sum);near(fine.width*160,z+4);fine.rectangles.forEach((r,i)=>{assert(r.area>=0);near(r.area,r.height*fine.width);near(r.left,-4+i*fine.width);if(i)assert(r.sum>=fine.rectangles[i-1].sum)});assert(Math.abs(fine.sum+tail-target)<Math.abs(rough.sum+tail-target));near(fine.sum+tail,target,2e-5)}
+near(M.probability(-1.95996398454,1.95996398454),.95,2e-7);assert.throws(()=>M.standardize(20,10,0));assert.throws(()=>M.midpoint(1,-1,24));assert.throws(()=>M.midpoint(-4,1,0));assert.throws(()=>M.midpoint(-4,1,2.5));
+const c=JSON.parse(read('dist/catalog.json')).find(c=>c.id==='normal');assert.equal(c.steps.length,9);for(const p of ['dist/downloads/normal.html','dist/normal.html']){const html=read(p);assert(html.includes('NormalExtension'));assert(html.includes('<msubsup>'));assert(!/src="\.\.\/assets|href="\.\.\/assets/.test(html));new vm.Script(html.match(/<script>([\s\S]*?)<\/script>/)[1]);}
+console.log('PASS: normal CDF benchmarks/monotonicity/derivative, standardization and Jacobian invariance, midpoint refinement with tail correction, retained 95% interval, nine-stage offline and legacy URLs.');

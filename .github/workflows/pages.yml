@@ -30,6 +30,7 @@ jobs:
       - run: node scripts/check-cultures.mjs
       - run: node scripts/check-hydro-lab.mjs
       - run: node scripts/check-error.mjs
+      - run: node scripts/check-normal.mjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
