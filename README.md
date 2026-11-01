@@ -59,6 +59,6 @@ docs/                 # 发布、内容依据与维护说明
 
 
 
-新增资源：[误差 · 准确度与精确度](https://lidong-huang.github.io/plant-nutrition-lab/lessons/measurement-error.html)：打靶 → 误差分解 → 重复测量 → 分布 → 试验控制。详见[知识路径与模型说明](docs/误差与测量.md)。
+新增资源：[误差 · 准确度与精确度](https://lidong-huang.github.io/plant-nutrition-lab/lessons/measurement-error.html)：农业测量 → 观测值与真值 → 打靶与逐次记录 → 两类误差 → 准确与精确 → 分布平移 → 随机波动与重复 → 试验控制。详见[知识路径与模型说明](docs/误差与测量.md)。
 
 有合作需要可以联系我：[ldhuangnz@163.com](mailto:ldhuangnz@163.com)。
