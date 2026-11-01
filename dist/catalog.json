@@ -192,5 +192,25 @@
     "cover": "covers/hydro-culture-v1.jpg",
     "path": "lessons/hydro-culture.html",
     "accent": "#9bc9bc"
+  },
+  {
+    "id": "measurement-error",
+    "title": "误差 · 准确度与精确度",
+    "category": "试验统计",
+    "chapter": "从打靶到植物营养测定",
+    "question": "打得很集中，就一定测得准吗？",
+    "description": "用立体靶盘、测量值与分布动画，分清系统偏差、随机波动和重复测量。",
+    "steps": [
+      "认识误差",
+      "两类误差",
+      "打靶比较",
+      "测量值",
+      "重复与均值",
+      "误差分布",
+      "回到试验"
+    ],
+    "cover": "covers/measurement-error-v1.svg",
+    "path": "lessons/measurement-error.html",
+    "accent": "#a9bfb4"
   }
 ]
