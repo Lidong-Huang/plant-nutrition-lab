@@ -29,4 +29,23 @@ body.normal-extended{grid-template-rows:72px 65px minmax(0,1fr) 104px}
 }
 
 .normal-sum-row{margin-top:5px}.normal-sum-formula{font-size:17px;margin-top:5px}body[data-normal-step="8"] .normal-numeric{top:123px}.standard-identity{font-size:12px;color:#80927b}
+.normal-sampling-panel{position:absolute;inset:0;pointer-events:none;color:#315e49}
+.sampling-formula{position:absolute;top:43px;left:12px;right:12px;text-align:center;font-size:22px}
+.sampling-formula math{font-family:'Cambria Math','STIX Two Math',serif}
+.sampling-math-row{display:flex;align-items:center;justify-content:center;gap:54px}
+.sampling-numeric{position:absolute;top:88px;left:16px;right:16px;text-align:center;font-size:12px;font-variant-numeric:tabular-nums;color:#6a846d;line-height:1.7}
+body[data-normal-step="6"] .sampling-numeric{top:114px}
+.sampling-actions{position:absolute;bottom:42px;left:12px;right:12px;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;pointer-events:auto}
+.sampling-actions button{background:#f6faf1;border:1px solid #cbdcc9;border-radius:5px;font-size:11px;padding:8px 12px;color:#567b5c;min-height:32px}
+.sampling-actions button[aria-pressed=true]{background:#dcebd9;color:#26744d;border-color:#a8c6a4}
+.sampling-note{position:absolute;bottom:8px;left:4%;right:4%;text-align:center;font-size:11px;line-height:1.6;color:#83947f;margin:0 auto;pointer-events:none}
+.normal-sampling .controls{gap:16px}.normal-sampling .controls label{font-size:18px;gap:8px}.normal-sampling .controls input{width:clamp(58px,8vw,120px)}
+@media(max-width:1000px){.sampling-numeric{font-size:11px}.sampling-formula{font-size:20px}.sampling-math-row{gap:25px}.normal-sampling .controls{gap:12px}}
+@media(max-width:720px){
+ .normal-sampling .stage{height:830px}.normal-sampling[data-normal-step="5"] .stage{height:660px}.normal-sampling[data-normal-step="6"] .stage{height:850px}
+ .sampling-formula{top:45px;font-size:18px}.sampling-numeric{top:89px;left:10px;right:10px;font-size:10px;line-height:1.8}
+ .sampling-math-row{gap:14px;font-size:15px}.sampling-math-row math{max-width:49%}body[data-normal-step="6"] .sampling-numeric{top:119px}
+ .sampling-actions{bottom:46px;gap:5px;left:8px;right:8px}.sampling-actions button{padding:7px 8px;font-size:10px}
+ .sampling-note{bottom:7px;left:5%;right:5%;font-size:10px}.normal-sampling .controls label{font-size:16px;flex:0 1 45%;gap:7px}.normal-sampling .controls input{width:100%;min-width:30px}.normal-sampling .controls #z-control{flex:0 1 45%}
+}
 @media(max-width:720px){.normal-sum-formula{font-size:15px}.normal-extended[data-normal-step="7"],.normal-extended[data-normal-step="8"]{padding-bottom:122px}.normal-extended[data-normal-step="7"] .bottom,.normal-extended[data-normal-step="8"] .bottom{height:122px;grid-template-rows:68px 40px}.normal-extended .standard-identity{font-size:11px}.normal-extended[data-normal-step="7"] #z-control,.normal-extended[data-normal-step="8"] #z-control{flex-basis:60%}}

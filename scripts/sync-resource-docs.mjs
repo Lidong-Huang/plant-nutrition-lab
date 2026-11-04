@@ -4,7 +4,7 @@ import {fileURLToPath} from 'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const site='https://lidong-huang.github.io/plant-nutrition-lab/';
 const notes={uptake:'玉米根系模型.md',minimum:'最小养分律说明.md',nitrogen:'氮素转化机理.md',blocks:'内容依据.md',splitplot:'裂区试验说明.md',normal:'正态分布标准化与积分.md','t-normal':'t分布与标准正态.md',interaction:'内容依据.md','soil-culture':'磷效应培养试验.md','sand-culture':'磷效应培养试验.md','hydro-culture':'霍格兰配液与pH操作.md','measurement-error':'误差与测量.md'};
-const topics={uptake:'土壤 → 根表 → 吸收 → 运输',minimum:'植株生长 → 木桶短板 → 限制转移',nitrogen:'矿化与硝化 → 吸收 → 三类氮损失',blocks:'肥力梯度 → 区组 → 随机与重复',splitplot:'灌水主区 → 施肥副区 → 两层误差',normal:'曲线 → 标准化 → 累积概率与积分','t-normal':'形状 → 自由度 → 双尾 0.05 → 临界值',interaction:'两个因素 → 交互作用 → 对比','soil-culture':'装盆与磷处理 → 养护 → 收获评价','sand-culture':'洗砂与配液 → 自动浇灌 → 收获评价','hydro-culture':'霍格兰配液 → pH 与通气 → 供磷评价','measurement-error':'农业测量 → 打靶 → 两类误差 → 分布'};
+const topics={uptake:'土壤 → 根表 → 吸收 → 运输',minimum:'植株生长 → 木桶短板 → 限制转移',nitrogen:'矿化与硝化 → 吸收 → 三类氮损失',blocks:'肥力梯度 → 区组 → 随机与重复',splitplot:'灌水主区 → 施肥副区 → 两层误差',normal:'X 与 X̄ → 抽样分布 → 两者标准化 → 累积概率与积分','t-normal':'形状 → 自由度 → 双尾 0.05 → 临界值',interaction:'两个因素 → 交互作用 → 对比','soil-culture':'装盆与磷处理 → 养护 → 收获评价','sand-culture':'洗砂与配液 → 自动浇灌 → 收获评价','hydro-culture':'霍格兰配液 → pH 与通气 → 供磷评价','measurement-error':'农业测量 → 打靶 → 两类误差 → 分布'};
 const order=['植物营养','培养试验','田间试验','试验统计'];
 export function syncResourceDocs(){
  const catalog=JSON.parse(fs.readFileSync(path.join(root,'dist/catalog.json'),'utf8'));
