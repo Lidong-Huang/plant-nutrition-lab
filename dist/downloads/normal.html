@@ -45,6 +45,20 @@ body[data-normal-step="6"] .sampling-numeric{top:114px}
 .sampling-actions button[aria-pressed=true]{background:#dcebd9;color:#26744d;border-color:#a8c6a4}
 .sampling-note{position:absolute;bottom:8px;left:4%;right:4%;text-align:center;font-size:11px;line-height:1.6;color:#83947f;margin:0 auto;pointer-events:none}
 .normal-sampling .controls{gap:16px}.normal-sampling .controls label{font-size:18px;gap:8px}.normal-sampling .controls input{width:clamp(58px,8vw,120px)}
+.sampling-workbench{position:absolute;bottom:30px;left:6%;right:6%;max-width:1200px;margin:auto;border:1px solid #d6e2d3;border-radius:9px;background:#fafcf6ee;padding:10px 15px;pointer-events:auto;box-shadow:0 5px 25px #3b6a4310}
+.sampling-workbench-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.sampling-mode{display:flex;background:#e8eee3;border-radius:5px;padding:3px;gap:3px;flex-shrink:0}
+.sampling-mode button{border:0;background:transparent;padding:6px 11px;border-radius:4px;font-size:11px;color:#70836e}
+.sampling-mode button[aria-pressed=true]{background:#fff;color:#26764f;box-shadow:0 1px 4px #3d6c4210}
+body[data-normal-step="4"] .sampling-actions{position:static;margin:0;justify-content:flex-end;gap:6px}
+body[data-normal-step="4"] #sampling-one{background:#247b56;color:#fff;border-color:#247b56}
+.sampling-student-tools{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(270px,1fr);gap:20px;margin-top:10px}
+.sampling-calculation{min-width:0}.sampling-values{display:flex;align-items:center;gap:5px;overflow-x:auto;white-space:nowrap;min-height:29px;max-height:35px;font-size:11px;color:#7b8e77;scrollbar-width:thin;padding-bottom:3px}
+.sampling-value{flex-shrink:0;border:1px solid #d3dfe5;background:#edf3f5;color:#537e99;border-radius:4px;padding:4px 7px;font-variant-numeric:tabular-nums}
+.sampling-answer-form{display:flex;align-items:center;gap:8px;margin-top:6px;font-size:11px}.sampling-answer-form label{white-space:nowrap;color:#6a8268}.sampling-answer-form input{min-width:70px;width:142px;border:1px solid #d0ddcb;border-radius:4px;background:#fff;padding:7px;color:#315e49;font-size:12px}.sampling-answer-form button,.sampling-quiz-options button{border:1px solid #c4d7c0;border-radius:4px;background:#f0f6eb;color:#3d7454;padding:7px 10px;font-size:11px}.sampling-answer-form input:disabled{opacity:.5}
+.sampling-feedback{min-height:17px;font-size:11px;line-height:1.6;color:#6a8567;margin:5px 0 0;font-variant-numeric:tabular-nums}.sampling-quiz{border-left:1px solid #dbe5d6;padding-left:20px}.sampling-quiz>p:first-child{font-size:12px;color:#426b50;margin:0 0 9px}.sampling-quiz-options{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.sampling-quiz-options button[aria-pressed=true]{background:#e4ede0;border-color:#8eae86}.sampling-quiz-options .answer-correct{background:#dcebd6;opacity:1;color:#28633e}.sampling-quiz-options #sampling-quiz-next{background:transparent;border-color:transparent;color:#81947b;padding-inline:3px}
+body[data-normal-step="4"] .sampling-note{font-size:10px;bottom:6px}
+@media(max-width:1000px) and (min-width:721px){.sampling-workbench{left:4%;right:4%}.sampling-student-tools{grid-template-columns:minmax(0,1.1fr) minmax(235px,1fr);gap:12px}.sampling-quiz{padding-left:12px}.sampling-answer-form{gap:5px}.sampling-answer-form input{width:110px}.sampling-answer-form button{padding-inline:7px}}
 @media(max-width:1000px){.sampling-numeric{font-size:11px}.sampling-formula{font-size:20px}.sampling-math-row{gap:25px}.normal-sampling .controls{gap:12px}}
 @media(max-width:720px){
  .normal-sampling .stage{height:830px}.normal-sampling[data-normal-step="5"] .stage{height:660px}.normal-sampling[data-normal-step="6"] .stage{height:850px}
@@ -52,6 +66,7 @@ body[data-normal-step="6"] .sampling-numeric{top:114px}
  .sampling-math-row{gap:14px;font-size:15px}.sampling-math-row math{max-width:49%}body[data-normal-step="6"] .sampling-numeric{top:119px}
  .sampling-actions{bottom:46px;gap:5px;left:8px;right:8px}.sampling-actions button{padding:7px 8px;font-size:10px}
  .sampling-note{bottom:7px;left:5%;right:5%;font-size:10px}.normal-sampling .controls label{font-size:16px;flex:0 1 45%;gap:7px}.normal-sampling .controls input{width:100%;min-width:30px}.normal-sampling .controls #z-control{flex:0 1 45%}
+ .normal-sampling[data-normal-step="4"] .stage{height:830px}.sampling-workbench{left:12px;right:12px;bottom:32px;padding:9px 10px}.sampling-workbench-top{flex-wrap:wrap;gap:6px}.sampling-mode button{padding:6px 8px;font-size:10px}.sampling-student-tools{grid-template-columns:minmax(0,1fr);gap:8px;margin-top:8px}.sampling-quiz{border-left:0;border-top:1px solid #dbe5d6;padding:8px 0 0}.sampling-quiz>p:first-child{font-size:11px;margin-bottom:6px}.sampling-feedback{font-size:10px;min-height:16px}.sampling-answer-form input{flex:1;width:100px;max-width:none}.sampling-answer-form button{padding-inline:9px}.sampling-answer-form{gap:6px}.sampling-value{font-size:11px;padding:4px 6px}body[data-normal-step="4"] .sampling-actions{gap:4px}.sampling-quiz-options button{font-size:10px;padding:6px 9px}body[data-normal-step="4"] .sampling-note{font-size:9px;left:12px;right:40px;text-align:left}
 }
 @media(max-width:720px){.normal-sum-formula{font-size:15px}.normal-extended[data-normal-step="7"],.normal-extended[data-normal-step="8"]{padding-bottom:122px}.normal-extended[data-normal-step="7"] .bottom,.normal-extended[data-normal-step="8"] .bottom{height:122px;grid-template-rows:68px 40px}.normal-extended .standard-identity{font-size:11px}.normal-extended[data-normal-step="7"] #z-control,.normal-extended[data-normal-step="8"] #z-control{flex-basis:60%}}
 </style><link rel="icon" href="data:,"></head>
@@ -94,7 +109,16 @@ body[data-normal-step="6"] .sampling-numeric{top:114px}
   const p=parameters(mu,sigma,n),center=Math.min(1,Math.max(0,phase)),scale=Math.min(1,Math.max(0,phase-1));
   return [sigma,p.se].map(sd=>{const divisor=sd**scale,mean=mu*(1-center),spread=sd/divisor;return {mean,sd:spread,divisor,value:mean+spread*z};});
  }
- const api={parameters,sample,summary,histogram,transform};root.NormalSamplingModel=api;
+ function guessMean(values,guess){
+  if(!values.length||!values.every(Number.isFinite)||!Number.isFinite(guess))throw Error('Invalid mean prediction');
+  const mean=values.reduce((sum,x)=>sum+x,0)/values.length;
+  return {guess,mean,error:Math.abs(guess-mean)};
+ }
+ function compareSampleSizes(from,to){
+  if(!Number.isInteger(from)||from<1||!Number.isInteger(to)||to<1)throw Error('Invalid sample sizes');
+  return {ratio:Math.sqrt(from/to),answer:to>from?'narrow':to<from?'wide':'same'};
+ }
+ const api={parameters,sample,summary,histogram,transform,guessMean,compareSampleSizes};root.NormalSamplingModel=api;
  if(typeof module!=='undefined')module.exports=api;
 })(typeof globalThis!=='undefined'?globalThis:window);
 </script><script>/* Independent normal draws -> one arithmetic mean per sample -> sampling distribution.
@@ -106,30 +130,51 @@ const laws=`<math aria-label="X服从均值μ方差σ平方的正态分布，样
 const meanFormula=`<math aria-label="样本均值等于n个观测值相加除以n，服从均值μ方差σ平方除以n的正态分布">${bar}<mo>=</mo><mfrac><mrow><msub><mi>X</mi><mn>1</mn></msub><mo>+</mo><mo>⋯</mo><mo>+</mo><msub><mi>X</mi><mi>n</mi></msub></mrow><mi>n</mi></mfrac><mo>∼</mo><mi>N</mi><mo>(</mo><mi>μ</mi><mo>,</mo>${variance}<mo>)</mo></math>`;
 const standards=`<div class="sampling-math-row"><math aria-label="单个观测值减μ除以σ"><mi>Z</mi><mo>=</mo><mfrac><mrow><mi>X</mi><mo>−</mo><mi>μ</mi></mrow><mi>σ</mi></mfrac><mo>∼</mo><mi>N</mi><mo>(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>)</mo></math><math aria-label="样本均值减μ除以标准误σ除以根号n"><msub><mi>Z</mi>${bar}</msub><mo>=</mo><mfrac><mrow>${bar}<mo>−</mo><mi>μ</mi></mrow>${se}</mfrac><mo>∼</mo><mi>N</mi><mo>(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>)</mo></math></div>`;
 function create({canvas,ctx,state,manual,invalidate}){
- const $=id=>document.getElementById(id),u={records:[],batch:null,progress:0,running:false,goal:Infinity,fast:false,phase:0,standardRunning:false,view:-1};let key='',lastDom='',rects=[];
+ const $=id=>document.getElementById(id),u={records:[],batch:null,progress:0,running:false,goal:Infinity,fast:false,phase:0,standardRunning:false,view:-1,mode:'student',studentPhase:'ready',guess:null,feedback:'',quiz:null,visualN:state.n},bench=document.createElement('section');let key='',lastDom='',pickAxis=null,benchStamp='',quizStamp='',touchStart=null;
+ bench.id='sampling-workbench';bench.className='sampling-workbench';bench.hidden=true;bench.setAttribute('aria-label','抽样与预测');
+ bench.innerHTML='<div class="sampling-workbench-top"><div class="sampling-mode" role="group" aria-label="学习方式"><button id="sampling-mode-student" type="button">自己动手</button><button id="sampling-mode-demo" type="button">自动演示</button></div><div id="sampling-workbench-actions"></div></div><div id="sampling-student-tools" class="sampling-student-tools"><div class="sampling-calculation"><div id="sampling-values" class="sampling-values" aria-label="本组观测值"></div><form id="sampling-answer-form" class="sampling-answer-form"><label for="sampling-answer">我猜均值</label><input id="sampling-answer" type="number" step="any" inputmode="decimal" placeholder="输入或点击数轴" autocomplete="off"><button id="sampling-submit" type="submit">计算并记录</button></form><p id="sampling-feedback" class="sampling-feedback" aria-live="polite"></p></div><div class="sampling-quiz"><p id="sampling-quiz-question"></p><div class="sampling-quiz-options"><button id="sampling-predict-narrow" type="button">更瘦</button><button id="sampling-predict-same" type="button">一样宽</button><button id="sampling-predict-wide" type="button">更宽</button><button id="sampling-quiz-next" type="button" hidden>再试一题 ↻</button></div><p id="sampling-quiz-feedback" class="sampling-feedback" aria-live="polite"></p></div></div>';
+ $('normal-sampling').append(bench);
  const params=()=>S.parameters(state.mu,state.sigma,state.n),prob=()=>M.cdf(state.z),active=()=>state.step>=4&&state.step<=6;
- function clear(){u.records=[];u.batch=null;u.progress=0;u.running=false;u.goal=Infinity;u.fast=false;}
- function begin(){u.batch=S.sample(state.mu,state.sigma,state.n);u.progress=0;}
+ function newQuiz(){u.quiz={from:state.n,to:state.n<64?Math.min(64,state.n*4):16,choice:null};quizStamp='';}
+ function clear(){u.records=[];u.batch=null;u.progress=0;u.running=false;u.goal=Infinity;u.fast=false;u.studentPhase='ready';u.guess=null;u.feedback='';benchStamp='';$('sampling-answer').value='';}
+ function begin(){u.batch=S.sample(state.mu,state.sigma,state.n);u.progress=0;u.guess=null;u.feedback='';u.studentPhase='drawn';benchStamp='';$('sampling-answer').value='';}
  function pause(){u.running=false;u.standardRunning=false;actions();}
- function sync(){const k=[state.mu,state.sigma,state.n].join(':');if(k===key)return;key=k;clear();if(state.step===4){begin();u.goal=1;u.running=true;actions();}lastDom='';}
+ function sync(){const k=[state.mu,state.sigma,state.n].join(':');if(k===key)return;key=k;clear();newQuiz();if(state.step===4&&u.mode==='demo'){begin();u.goal=1;u.running=true;}actions();lastDom='';}
  function reset(){clear();u.phase=0;u.standardRunning=false;key='';sync();actions();update();}
- function enter(step,autoplay=false){pause();u.view=step;if(step===4){if(!u.batch)begin();u.goal=Infinity;u.fast=false;u.running=true;}if(step===6){u.phase=0;u.standardRunning=autoplay;}actions();update();}
+ function enter(step,autoplay=false){pause();u.view=step;if(step===4){if(autoplay)u.mode='demo';if(u.mode==='demo'){if(!u.batch||u.studentPhase==='recorded')begin();u.goal=Infinity;u.fast=false;u.running=true;}}if(step===6){u.phase=0;u.standardRunning=autoplay;}actions();update();}
+ function setMode(mode){manual();u.mode=mode;u.batch=null;u.progress=0;u.studentPhase='ready';u.guess=null;u.feedback='';$('sampling-answer').value='';benchStamp='';actions();update();}
+ $('sampling-mode-student').onclick=()=>setMode('student');$('sampling-mode-demo').onclick=()=>setMode('demo');
+ function setGuess(value){if(u.mode!=='student'||u.studentPhase!=='drawn'||!Number.isFinite(value))return;u.guess=value;u.feedback='';$('sampling-answer').value=fmt(value,2);updateWorkbench();invalidate();}
+ $('sampling-answer').oninput=e=>{u.guess=e.target.value===''?null:e.target.valueAsNumber;u.feedback='';updateWorkbench();invalidate();};
+ $('sampling-answer-form').onsubmit=e=>{e.preventDefault();if(u.mode!=='student'||u.studentPhase!=='drawn'||!u.batch)return;manual();if(!Number.isFinite(u.guess)){u.feedback='先点击数轴，或输入你预测的均值。';updateWorkbench();return;}const result=S.guessMean(u.batch.values,u.guess);u.feedback=`你猜 ${fmt(result.guess)} · 实际 ${fmt(result.mean)} · 相差 ${fmt(result.error)}`;u.studentPhase='revealing';u.progress=0;u.running=true;u.goal=u.records.length+1;actions();update();};
+ for(const choice of ['narrow','same','wide'])$('sampling-predict-'+choice).onclick=()=>{if(u.quiz.choice!==null)return;manual();const q={...u.quiz,choice},result=S.compareSampleSizes(q.from,q.to);state.n=q.to;sync();u.quiz={...q,correct:choice===result.answer,ratio:result.ratio,answer:result.answer};quizStamp='';actions();update();};
+ $('sampling-quiz-next').onclick=()=>{manual();newQuiz();updateWorkbench();invalidate();};
+ canvas.addEventListener('pointerdown',e=>touchStart={x:e.clientX,y:e.clientY});
+ canvas.addEventListener('pointercancel',()=>touchStart=null);
+ canvas.addEventListener('pointerup',e=>{const start=touchStart;touchStart=null;if(!start||Math.hypot(start.x-e.clientX,start.y-e.clientY)>7||state.step!==4||u.mode!=='student'||u.studentPhase!=='drawn'||!pickAxis)return;const box=canvas.getBoundingClientRect(),p={x:e.clientX-box.left,y:e.clientY-box.top},a=pickAxis.a,b=pickAxis.b,dx=b.x-a.x,dy=b.y-a.y,length=dx*dx+dy*dy,t=((p.x-a.x)*dx+(p.y-a.y)*dy)/length,distance=Math.abs((p.x-a.x)*dy-(p.y-a.y)*dx)/Math.sqrt(length);if(distance<48&&t>=0&&t<=1)setGuess(pickAxis.lo+t*(pickAxis.hi-pickAxis.lo));});
+ function updateWorkbench(){const show=state.step===4;bench.hidden=!show;const actionsElement=$('sampling-actions'),destination=show?$('sampling-workbench-actions'):$('normal-sampling');if(actionsElement.parentElement!==destination)destination.append(actionsElement);if(!show)return;
+  $('sampling-mode-student').setAttribute('aria-pressed',String(u.mode==='student'));$('sampling-mode-demo').setAttribute('aria-pressed',String(u.mode==='demo'));$('sampling-student-tools').hidden=u.mode!=='student';
+  const stamp=[key,u.mode,u.studentPhase,u.batch?.mean].join('|');if(stamp!==benchStamp){benchStamp=stamp;const values=$('sampling-values');values.replaceChildren();if(u.batch){u.batch.values.forEach((x,i)=>{const chip=document.createElement('span');chip.className='sampling-value';chip.textContent=x.toFixed(1);chip.dataset.value=x;chip.title=`第 ${i+1} 个观测值`;values.append(chip);});}else values.textContent='① 抽取一组 → ② 猜均值 → ③ 计算并记录';}
+  const drawn=u.studentPhase==='drawn';$('sampling-answer').disabled=!drawn;$('sampling-submit').disabled=!drawn;$('sampling-feedback').textContent=u.feedback||(drawn?'观察蓝点，在数轴上点一下，猜它们的平均位置。':u.studentPhase==='ready'?'每组 n 个蓝点，最后留下 1 个绿色均值点。':u.studentPhase==='revealing'?'蓝点汇成均值，正在记入分布…':'均值已记入。再抽一组，看看它落在哪里。');
+  if(!u.quiz)newQuiz();const q=u.quiz,qs=JSON.stringify(q);if(qs!==quizStamp){quizStamp=qs;$('sampling-quiz-question').textContent=`n 从 ${q.from} 改为 ${q.to}，绿色分布会？`;for(const choice of ['narrow','same','wide']){const button=$('sampling-predict-'+choice);button.disabled=q.choice!==null;button.setAttribute('aria-pressed',String(q.choice===choice));button.classList.toggle('answer-correct',q.choice!==null&&q.answer===choice);}$('sampling-quiz-next').hidden=q.choice===null;$('sampling-quiz-feedback').textContent=q.choice===null?'先预测，再看曲线变化。':`${q.correct?'正确':'再观察'}：宽度变为原来的 ${fmt(q.ratio)} 倍。`;$('sampling-quiz-feedback').dataset.correct=String(q.correct===true);}
+ }
  function actions(){const e=$('sampling-actions');e.replaceChildren();const add=(id,label,fn,pressed)=>{const b=document.createElement('button');b.id=id;b.textContent=label;if(pressed!==undefined)b.setAttribute('aria-pressed',String(pressed));b.onclick=()=>{const prior={running:u.running,standard:u.standardRunning};manual();fn(prior);actions();update();invalidate();};e.append(b);};
-  if(u.view===4){add('sampling-play',u.running?'Ⅱ 暂停抽样':'▶ 连续抽样',p=>{if(!p.running){if(!u.batch)begin();u.running=true;u.goal=Infinity;u.fast=false;}});add('sampling-one','抽取一组',()=>{if(!u.batch)begin();u.running=true;u.fast=false;u.goal=u.records.length+1;});add('sampling-hundred','累积 100 组',()=>{if(!u.batch)begin();u.running=true;u.fast=true;u.goal=u.records.length+100;});add('sampling-clear','清空',()=>clear());}
+  if(u.view===4){if(u.mode==='demo'){add('sampling-play',u.running?'Ⅱ 暂停抽样':'▶ 连续抽样',p=>{if(!p.running){if(!u.batch)begin();u.running=true;u.goal=Infinity;u.fast=false;}});add('sampling-one','抽取一组',()=>{if(!u.batch)begin();u.running=true;u.fast=false;u.goal=u.records.length+1;});add('sampling-hundred','累积 100 组',()=>{if(!u.batch)begin();u.running=true;u.fast=true;u.goal=u.records.length+100;});}else{add('sampling-one','① 抽取一组',()=>begin());$('sampling-one').disabled=u.studentPhase==='drawn'||u.studentPhase==='revealing';if(u.studentPhase==='revealing'&&!u.running)add('sampling-student-resume','继续记录 ▶',()=>u.running=true);}add('sampling-clear','清空',()=>clear());}
   if(u.view===5){[1,4,16,64].forEach(n=>add('sampling-n-'+n,'n = '+n,()=>{state.n=n;sync();},state.n===n));}
   if(u.view===6){['① 原始分布','② 减去 μ','③ 除各自标准差'].forEach((v,i)=>add('dual-standard-'+i,v,()=>u.phase=i,Math.round(u.phase)===i));add('dual-standard-play',u.standardRunning?'Ⅱ 暂停':'▶ 同步标准化',p=>{if(!p.standard){if(u.phase>=2)u.phase=0;u.standardRunning=true;}});}
  }
- function update(){sync();const is=active();$('normal-sampling').hidden=!is;$('n-control').hidden=!is;document.body.classList.toggle('normal-sampling',is);if(!is)return;
+ function update(){sync();const is=active();$('normal-sampling').hidden=!is;$('n-control').hidden=!is;document.body.classList.toggle('normal-sampling',is);updateWorkbench();if(!is)return;
   $('n').value=state.n;$('n-value').textContent=state.n;if(state.step===6){$('z-bound').value=state.z;$('z-value').textContent=state.z.toFixed(2);}const p=params(),mean=state.mu,seValue=fmt(p.se),stamp=[u.view,key,u.records.length,Math.floor(u.phase*40),state.z].join('|');
   if(stamp!==lastDom){lastDom=stamp;const f=$('sampling-formula');f.innerHTML=u.view===6?standards:u.view===4?meanFormula:laws;const stats=S.summary(u.records);let txt='';
-   if(u.view===4){txt=`每组 n=${state.n}　｜　已得到 ${u.records.length} 个均值`+(stats.count>1?`　｜　均值点的标准差 ${fmt(stats.sd)}（理论 ${seValue}）`:`　｜　理论标准误 ${seValue}`);$('sampling-note').textContent='正态总体 · 独立抽样 · 每组一个均值点；两图横轴刻度不同。';}
+   if(u.view===4){txt=`每组 n=${state.n}　｜　已得到 ${u.records.length} 个均值　｜　σ=${state.sigma} → σ/√n=${seValue}`;$('sampling-note').textContent='同一横轴、同一密度刻度 · 正态总体独立抽样 · 两条曲线下面积均为 1';}
    if(u.view===5){txt=`相同均值 μ=${mean}　｜　X：标准差 ${state.sigma}　｜　X̄：标准误 ${seValue}`;$('sampling-note').textContent='同一横轴、同一密度刻度；n 增大，均值的分布更集中。两条曲线下面积都为 1。';}
    if(u.view===6){const t=S.transform(mean,state.sigma,state.n,u.phase,state.z),name=u.phase===0?'原始值':u.phase<1?'中心化中':u.phase===1?'中心化':u.phase<2?'标准化中':'标准化';txt=`${name}：X → ${fmt(t[0].value)}　｜　X̄ → ${fmt(t[1].value)}　｜　同一分位 Φ(z)=${prob().toFixed(4)}`;$('sampling-note').textContent='已知总体 σ · X 除以 σ，X̄ 除以 σ/√n；换单位后密度同步改变，概率面积不变。';}
    $('sampling-numeric').textContent=txt;
   }
   canvas.dataset.sampleCount=u.records.length;canvas.dataset.sampleSize=state.n;canvas.dataset.standardError=p.se;canvas.dataset.dualStandardPhase=u.phase.toFixed(3);invalidate();
  }
- function tick(dt){let change=false;if(u.view===4&&u.running){if(!u.batch)begin();u.progress=Math.min(1,u.progress+dt/(u.fast?130:2100));if(u.progress===1){u.records.push(u.batch.mean);u.batch=null;if(u.records.length>=u.goal||u.records.length>=5000){u.running=false;actions();}else begin();}change=true;}
+ function tick(dt){let change=false;if(Math.abs(u.visualN-state.n)>.001){u.visualN+=(state.n-u.visualN)*(1-Math.exp(-dt/150));change=true;}else u.visualN=state.n;
+  if(u.view===4&&u.running){if(!u.batch)begin();u.progress=Math.min(1,u.progress+dt/(u.mode==='student'?1100:u.fast?130:2100));if(u.progress===1){u.records.push(u.batch.mean);if(u.mode==='student'){u.studentPhase='recorded';u.running=false;actions();}else{u.batch=null;if(u.records.length>=u.goal||u.records.length>=5000){u.running=false;actions();}else begin();}}change=true;}
   if(u.view===6&&u.standardRunning){u.phase=Math.min(2,u.phase+dt/2200);if(u.phase===2){u.standardRunning=false;actions();}change=true;}if(change)update();return change;
  }
  function label(s,x,y,{size=13,color=C.ink,align='center',bold=false}={}){ctx.save();ctx.font=`${bold?500:400} ${size}px "Microsoft YaHei",sans-serif`;ctx.textAlign=align;ctx.textBaseline='middle';ctx.fillStyle=color;ctx.fillText(s,x,y);ctx.restore();}
@@ -151,17 +196,21 @@ function create({canvas,ctx,state,manual,invalidate}){
  function panels(w,h){const top=state.step===6?150:126,bottom=114,gap=w<720?47:36;if(w<720){const hh=(h-top-bottom-gap)/2;return [{x:30,y:top,w:w-60,h:hh},{x:30,y:top+hh+gap,w:w-60,h:hh}];}const ww=(w-140-gap)/2;return [{x:70,y:top,w:ww,h:h-top-bottom},{x:70+ww+gap,y:top,w:ww,h:h-top-bottom}];}
  function pointer(ch,x,color,caption){const pos=ch.project(clamp(x,ch.mu-3.9*ch.unit,ch.mu+3.9*ch.unit),0);dot(pos,color,4);if(caption)label(caption,pos.x,pos.y+34,{size:11,color});return pos;}
  function arrow(a,b){line([a,b],C.gold,1.3,[4,5]);const t=Math.atan2(b.y-a.y,b.x-a.x);line([{x:b.x-7*Math.cos(t-.5),y:b.y-7*Math.sin(t-.5)},b,{x:b.x-7*Math.cos(t+.5),y:b.y-7*Math.sin(t+.5)}],C.gold,1.3);}
- function sampleScene(w,h,camera){const p=params(),[a,b]=panels(w,h),hist=S.histogram(u.records,p.mu-4*p.se,p.mu+4*p.se),max=Math.max(M.pdf(p.mu,p.mu,p.se)*1.4,...hist.densities.map(v=>v*1.08)),left=chart(a,camera,{title:'总体：单个观测 X',subtitle:`μ=${p.mu} · σ=${p.sigma}`,axis:'x'}),right=chart(b,camera,{unit:p.se,max,title:'反复抽样：每组一个 X̄',subtitle:`n=${p.n} · 标准误=${fmt(p.se)}`,axis:'x̄'});rects=[a,b];curve(left,p.mu,p.sigma,C.blue,{shade:true});
-  const rp=right.project,lo=p.mu-4*p.se;for(let i=0;i<hist.counts.length;i++){if(!hist.counts[i])continue;const x=lo+i*hist.width,y=hist.densities[i];fill([rp(x,0),rp(x,y),rp(x+hist.width*.92,y),rp(x+hist.width*.92,0)],C.green,.25);line([rp(x,0),rp(x,y),rp(x+hist.width*.92,y),rp(x+hist.width*.92,0)],'#90ad8c',.65);}
-  curve(right,p.mu,p.se,C.green,{dash:[5,4]});label('直方图：已抽得的均值 · 虚线：理论分布',b.x+b.w/2,b.y+49,{size:10,color:C.muted});
-  if(hist.below+hist.above)label(`图示范围外 ${hist.below+hist.above} 个均值（计入总数）`,b.x+b.w/2,b.y+b.h+12,{size:10,color:C.muted});
-  if(!u.batch){label(u.records.length?'每一组样本，只留下一个均值':'点击「抽取一组」开始',w/2,h-99,{size:12,color:C.gold});return;}
-  const batch=u.batch,t=u.progress,tx=w/2,ty=w<720?(a.y+a.h+24):h-143,spacing=Math.min(14,(w<720?w-90:Math.min(650,w-180))/Math.max(1,p.n-1)),leftX=tx-spacing*(p.n-1)/2;
-  const trayStart={x:leftX-12,y:ty},trayEnd={x:leftX+(p.n-1)*spacing+12,y:ty};line([trayStart,trayEnd],'#ccd9c9',2);
-  const target=rp(clamp(batch.mean,p.mu-3.9*p.se,p.mu+3.9*p.se),0),merge={x:tx,y:ty};
-  batch.values.forEach((v,i)=>{const from=left.project(clamp(v,p.mu-3.9*p.sigma,p.mu+3.9*p.sigma),M.pdf(v,p.mu,p.sigma)),tray={x:leftX+i*spacing,y:ty},q=clamp((t-i/p.n*.18)/.43,0,1),r=clamp((t-.5)/.25,0,1),pos=t<.5?{x:from.x+(tray.x-from.x)*q,y:from.y+(tray.y-from.y)*q-25*Math.sin(q*Math.PI)}:{x:tray.x+(merge.x-tray.x)*r,y:tray.y};if(t<.76)dot(pos,C.blue,p.n>25?2:3);});
-  if(t>=.5){const f=clamp((t-.72)/.28,0,1),pos={x:merge.x+(target.x-merge.x)*f,y:merge.y+(target.y-merge.y)*f-20*Math.sin(f*Math.PI)};dot(pos,C.green,5);label('x̄='+fmt(batch.mean),pos.x,pos.y-18,{size:12,color:C.green});}
-  if(w>=720){arrow({x:a.x+a.w*.75,y:ty},{x:tx-28,y:ty});arrow({x:tx+28,y:ty},{x:b.x+b.w*.25,y:ty});}label('抽取 n 个观测值 → 求平均 → 记下一个均值点',w/2,w<720?h-98:ty+28,{size:11,color:C.muted});
+ function sampleScene(w,h,camera){const p=params(),visualSe=p.sigma/Math.sqrt(u.visualN),bins=Math.max(24,Math.round(24*Math.sqrt(p.n))),lo=p.mu-4*p.sigma,hi=p.mu+4*p.sigma,hist=S.histogram(u.records,lo,hi,bins),hasHistogram=u.records.length>=30,baseMax=M.pdf(p.mu,p.mu,p.sigma/Math.sqrt(Math.max(9,u.visualN)))*1.45,max=hasHistogram?Math.max(baseMax,...hist.densities.map(v=>v*1.06)):baseMax,benchTop=h-30-bench.getBoundingClientRect().height,axisY=benchTop-88,rect={x:w<720?26:90,y:126,w:w-(w<720?52:180),h:Math.max(150,axisY-126+31)},ch=chart(rect,camera,{max,title:p.n===1?'n = 1：两条分布重合':`均值分布的宽度 ≈ 总体的 ${fmt(100/Math.sqrt(p.n),0)}%`,subtitle:`蓝线：单个观测 X　　绿虚线：样本均值 X̄${hasHistogram?'　· 绿柱：抽得的均值':''}`,axis:'x / x̄'}),q=ch.project;
+  pickAxis={a:q(lo,0),b:q(hi,0),lo,hi};
+  curve(ch,p.mu,p.sigma,C.blue,{shade:true,width:p.n===1?6:3.2});
+  if(hasHistogram){for(let i=0;i<hist.counts.length;i++){if(!hist.counts[i])continue;const x=lo+i*hist.width,y=hist.densities[i];fill([q(x,0),q(x,y),q(x+hist.width*.92,y),q(x+hist.width*.92,0)],C.green,.25);line([q(x,0),q(x,y),q(x+hist.width*.92,y),q(x+hist.width*.92,0)],'#86a580',.7);}}
+  else u.records.forEach((mean,i)=>{const at=q(clamp(mean,lo,hi),0);dot({x:at.x,y:at.y-3-(i%3)*4},C.green,2.8);});
+  curve(ch,p.mu,visualSe,C.green,{shade:true,dash:[6,4],width:3});
+  line([q(p.mu,0),q(p.mu,max*.92)],'#a0b5a0',1,[3,5]);
+  for(const [sd,color,caption,offset] of [[p.sigma,C.blue,'X：σ = '+p.sigma,40],[visualSe,C.green,'X̄：σ/√n = '+fmt(p.se),66]]){const a=q(p.mu-sd,0),b=q(p.mu+sd,0);a.y+=offset;b.y+=offset;line([a,b],color,2.3);for(const pt of[a,b])line([{x:pt.x,y:pt.y-4},{x:pt.x,y:pt.y+4}],color,1.5);label(caption,b.x+14,(a.y+b.y)/2,{size:w<720?10:11,color,align:'left'});}
+  if(hist.below+hist.above)label(`窗外 ${hist.below+hist.above} 个均值，仍计入总数`,rect.x+rect.w/2,rect.y+49,{size:10,color:C.muted});
+  if(u.mode==='student'&&u.studentPhase==='drawn'&&Number.isFinite(u.guess)){const x=clamp(u.guess,lo,hi),at=q(x,0);line([at,q(x,max*.65)],C.gold,1.3,[4,4]);dot(at,C.gold,5);label('你猜 '+fmt(u.guess),at.x,at.y-22,{size:12,color:C.gold});}
+  if(u.batch){const batch=u.batch,t=u.progress,showRaw=u.mode==='student'?u.studentPhase==='drawn'||u.studentPhase==='revealing':true,target=q(clamp(batch.mean,lo,hi),0),merge=clamp(t/.8,0,1);
+   if(showRaw&&t<.85)batch.values.forEach((v,i)=>{const from=q(clamp(v,lo,hi),M.pdf(v,p.mu,p.sigma)),f=u.mode==='student'&&u.studentPhase==='drawn'?0:clamp((merge-i/p.n*.1)/.9,0,1),pos={x:from.x+(target.x-from.x)*f,y:from.y+(target.y-from.y)*f-18*Math.sin(f*Math.PI)};dot(pos,C.blue,p.n>25?2.5:3.6);});
+   if(t>.55||u.studentPhase==='recorded'){dot(target,C.green,6);label('x̄ = '+fmt(batch.mean),target.x,target.y-22,{size:13,color:C.green,bold:true});}
+  }
+  canvas.dataset.sharedSamplingAxes='true';canvas.dataset.samplingWidthRatio=String(p.se/p.sigma);canvas.dataset.samplingPixelRatio=String(Math.abs(q(p.mu+visualSe,0).x-q(p.mu-visualSe,0).x)/Math.abs(q(p.mu+p.sigma,0).x-q(p.mu-p.sigma,0).x));
  }
  function compare(w,h,camera){const p=params(),rect={x:w<720?31:95,y:135,w:w-(w<720?62:190),h:h-330},ch=chart(rect,camera,{max:M.pdf(p.mu,p.mu,p.se)*1.2,title:'同一个 μ，两种波动',subtitle:'蓝色：X　　绿色：X̄',axis:'相同的观测单位'});curve(ch,p.mu,p.sigma,C.blue,{shade:true,width:p.n===1?6:3});curve(ch,p.mu,p.se,C.green,{shade:true,width:3,dash:p.n===1?[6,4]:[]});const q=ch.project;
   line([q(p.mu,0),q(p.mu,ch.max*.88)],C.gold,1,[4,5]);label('共同中心 μ='+p.mu,w/2,rect.y+49,{size:11,color:C.gold});
@@ -173,7 +222,7 @@ function create({canvas,ctx,state,manual,invalidate}){
   [a,b].forEach((r,i)=>{const v=ts[i],name=i?'X̄':'X',den=i?'σ/√n':'σ',title=phase===0?name:phase===1?name+' − μ':`(${name}−μ)/(${den})`,ch=chart(r,camera,{mu:center,unit,max,title,subtitle:`中心 ${fmt(v.mean)} · 标准差 ${fmt(v.sd)}`,axis:phase===0?(i?'x̄':'x'):phase===1?'减 μ 后':'z'});curve(ch,v.mean,v.sd,i?C.green:C.blue,{shade:true,z:state.z});const at=v.value;line([ch.project(at,0),ch.project(at,M.pdf(at,v.mean,v.sd))],C.gold,1.2,[4,4]);pointer(ch,at,C.gold,fmt(at));label(`同一分位：z = ${fmt(state.z)}`,r.x+r.w/2,r.y+49,{size:10,color:C.muted});});
  }
  function draw({w,h,current}){if(state.step===4)sampleScene(w,h,current);if(state.step===5)compare(w,h,current);if(state.step===6)standard(w,h,current);}
- return {enter,update,draw,tick,pause,reset,actions,get diagnostics(){const p=params(),stats=S.summary(u.records);return {...p,count:u.records.length,empirical:stats,batch:u.batch?{values:[...u.batch.values],mean:u.batch.mean}:null,progress:u.progress,running:u.running,phase:u.phase,standardRunning:u.standardRunning,transforms:S.transform(p.mu,p.sigma,p.n,u.phase,state.z),probability:prob()};}};
+ return {enter,update,draw,tick,pause,reset,actions,get diagnostics(){const p=params(),stats=S.summary(u.records);return {...p,count:u.records.length,empirical:stats,batch:u.batch?{values:[...u.batch.values],mean:u.batch.mean}:null,progress:u.progress,running:u.running,phase:u.phase,standardRunning:u.standardRunning,mode:u.mode,studentPhase:u.studentPhase,guess:u.guess,quiz:u.quiz?{...u.quiz}:null,visualN:u.visualN,axis:pickAxis?{...pickAxis}:null,transforms:S.transform(p.mu,p.sigma,p.n,u.phase,state.z),probability:prob()};}};
 }
 window.NormalSampling={create};
 })();

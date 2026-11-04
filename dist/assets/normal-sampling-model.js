@@ -24,6 +24,15 @@
   const p=parameters(mu,sigma,n),center=Math.min(1,Math.max(0,phase)),scale=Math.min(1,Math.max(0,phase-1));
   return [sigma,p.se].map(sd=>{const divisor=sd**scale,mean=mu*(1-center),spread=sd/divisor;return {mean,sd:spread,divisor,value:mean+spread*z};});
  }
- const api={parameters,sample,summary,histogram,transform};root.NormalSamplingModel=api;
+ function guessMean(values,guess){
+  if(!values.length||!values.every(Number.isFinite)||!Number.isFinite(guess))throw Error('Invalid mean prediction');
+  const mean=values.reduce((sum,x)=>sum+x,0)/values.length;
+  return {guess,mean,error:Math.abs(guess-mean)};
+ }
+ function compareSampleSizes(from,to){
+  if(!Number.isInteger(from)||from<1||!Number.isInteger(to)||to<1)throw Error('Invalid sample sizes');
+  return {ratio:Math.sqrt(from/to),answer:to>from?'narrow':to<from?'wide':'same'};
+ }
+ const api={parameters,sample,summary,histogram,transform,guessMean,compareSampleSizes};root.NormalSamplingModel=api;
  if(typeof module!=='undefined')module.exports=api;
 })(typeof globalThis!=='undefined'?globalThis:window);
