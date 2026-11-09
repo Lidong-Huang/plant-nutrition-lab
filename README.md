@@ -8,7 +8,7 @@
 
 ## 教学资源
 
-已整理 **12 项定稿资源**：植物营养 3 项、培养试验 3 项、田间试验 2 项、试验统计 4 项。
+已整理 **13 项定稿资源**：植物营养 3 项、培养试验 3 项、田间试验 2 项、试验统计 5 项。
 
 [按分类查看目录](courses/README.md) · [完整文件清单](docs/资源目录.md) · [下载整个资源库 ZIP](https://github.com/Lidong-Huang/plant-nutrition-lab/archive/refs/heads/main.zip)
 
@@ -21,6 +21,7 @@
 | <img src="dist/covers/splitplot-v2.webp" width="190" alt="裂区试验设计"> | [裂区试验设计](https://lidong-huang.github.io/plant-nutrition-lab/lessons/splitplot.html) | 灌水主区 → 施肥副区 → 两层误差 | [独立 HTML](dist/downloads/splitplot.html) · [说明](courses/splitplot/README.md) |
 | <img src="dist/covers/normal-v2.webp" width="190" alt="正态分布"> | [正态分布](https://lidong-huang.github.io/plant-nutrition-lab/lessons/normal.html) | X 与 X̄ → 抽样分布 → 两者标准化 → 累积概率与积分 | [独立 HTML](dist/downloads/normal.html) · [说明](courses/normal/README.md) |
 | <img src="dist/covers/t-normal-v1.svg" width="190" alt="t 分布与标准正态分布"> | [t 分布与标准正态分布](https://lidong-huang.github.io/plant-nutrition-lab/lessons/t-normal.html) | 形状 → 自由度 → 双尾 0.05 → 临界值 | [独立 HTML](dist/downloads/t-normal.html) · [说明](courses/t-normal/README.md) |
+| <img src="dist/covers/trial-story-v1.png" width="190" alt="这次玉米产量显著提高了吗？"> | [这次玉米产量显著提高了吗？](https://lidong-huang.github.io/plant-nutrition-lab/lessons/trial-story.html) | 四个小区 → 均值抽样 → 标准化与t → 尾部概率 → 判断 | [独立 HTML](dist/downloads/trial-story.html) · [说明](courses/trial-story/README.md) |
 | <img src="dist/covers/interaction-v2.webp" width="190" alt="氮 × 磷的交互作用"> | [氮 × 磷的交互作用](https://lidong-huang.github.io/plant-nutrition-lab/lessons/interaction.html) | 两个因素 → 交互作用 → 对比 | [独立 HTML](dist/downloads/interaction.html) · [说明](courses/interaction/README.md) |
 | <img src="dist/covers/soil-culture-v1.jpg" width="190" alt="土培 · 玉米磷肥效应"> | [土培 · 玉米磷肥效应](https://lidong-huang.github.io/plant-nutrition-lab/lessons/soil-culture.html) | 装盆与磷处理 → 养护 → 收获评价 | [独立 HTML](dist/downloads/soil-culture.html) · [说明](courses/soil-culture/README.md) |
 | <img src="dist/covers/sand-culture-v1.jpg" width="190" alt="砂培 · 自动砂面浇灌"> | [砂培 · 自动砂面浇灌](https://lidong-huang.github.io/plant-nutrition-lab/lessons/sand-culture.html) | 洗砂与配液 → 自动浇灌 → 收获评价 | [独立 HTML](dist/downloads/sand-culture.html) · [说明](courses/sand-culture/README.md) |
@@ -30,6 +31,7 @@
 ## 使用
 
 - **在线**：首页选择课件，按步骤播放或调整参数。
+- **闯关**：[这次玉米产量显著提高了吗？](https://lidong-huang.github.io/plant-nutrition-lab/lessons/trial-story.html) 包含五幕、十五个必做任务；完成操作和选择后才能继续，支持本地进度保存与学习记录下载。
 - **旋转**：拖动观察立体场景，滚轮缩放；触屏单指旋转、双指缩放。支持正视、俯视、复位和自动环绕。
 - **动画**：观察养分流动、木桶水位、作物响应和区组随机移动；田间场景包含日照、道路、树木与作物。
 - **离线**：下载 `dist/downloads/` 内任意 HTML，在 Chrome 或 Edge 中直接打开。

@@ -1,6 +1,6 @@
 # 教学资源目录
 
-共 **12 项**，均提供在线演示、封面和可独立运行的 HTML。
+共 **13 项**，均提供在线演示、封面和可独立运行的 HTML。
 
 **[进入教学网站](https://lidong-huang.github.io/plant-nutrition-lab/)** · [完整文件清单](../docs/资源目录.md)
 
@@ -27,12 +27,13 @@
 | [随机区组设计](blocks/README.md) | [打开](https://lidong-huang.github.io/plant-nutrition-lab/lessons/blocks.html) | [独立 HTML](../dist/downloads/blocks.html) |
 | [裂区试验设计](splitplot/README.md) | [打开](https://lidong-huang.github.io/plant-nutrition-lab/lessons/splitplot.html) | [独立 HTML](../dist/downloads/splitplot.html) |
 
-## 试验统计（4）
+## 试验统计（5）
 
 | 资源 | 在线 | 离线 |
 | --- | --- | --- |
 | [正态分布](normal/README.md) | [打开](https://lidong-huang.github.io/plant-nutrition-lab/lessons/normal.html) | [独立 HTML](../dist/downloads/normal.html) |
 | [t 分布与标准正态分布](t-normal/README.md) | [打开](https://lidong-huang.github.io/plant-nutrition-lab/lessons/t-normal.html) | [独立 HTML](../dist/downloads/t-normal.html) |
+| [这次玉米产量显著提高了吗？](trial-story/README.md) | [打开](https://lidong-huang.github.io/plant-nutrition-lab/lessons/trial-story.html) | [独立 HTML](../dist/downloads/trial-story.html) |
 | [氮 × 磷的交互作用](interaction/README.md) | [打开](https://lidong-huang.github.io/plant-nutrition-lab/lessons/interaction.html) | [独立 HTML](../dist/downloads/interaction.html) |
 | [误差 · 准确度与精确度](measurement-error/README.md) | [打开](https://lidong-huang.github.io/plant-nutrition-lab/lessons/measurement-error.html) | [独立 HTML](../dist/downloads/measurement-error.html) |
 

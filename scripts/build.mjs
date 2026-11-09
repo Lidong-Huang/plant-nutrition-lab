@@ -10,11 +10,17 @@ const asset=p=>p+'?v='+createHash('sha256').update(read(p)).digest('hex').slice(
 const catalog=JSON.parse(read('catalog.json'));
 const write=(p,s)=>{const dest=path.join(dist,p);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.writeFileSync(dest,s)};
 write('assets/catalog.js',`window.CATALOG=${JSON.stringify(catalog)};\n`);
+// Keep the landing page counts and cache keys aligned with the released catalog.
+write('index.html',read('index.html')
+ .replace(/(<span><b>)\d+(<\/b> 个互动课件)/,`$1${catalog.length}$2`)
+ .replace(/(<button[^>]+data-filter="([^\"]+)"[^>]*>)([\s\S]*?)(<\/button>)/g,(_,open,category,label,close)=>category==='全部'?open+label+close:open+category+' <small>'+String(catalog.filter(c=>c.category===category).length).padStart(2,'0')+'</small>'+close)
+ .replace(/显示全部 \d+ 个教学资源/g,`显示全部 ${catalog.length} 个教学资源`)
+ .replace(/((?:href|src)=")((?:assets\/)[^"?]+)(?:\?[^"]*)?"/g,(_,prefix,p)=>prefix+asset(p)+'"'));
 const ctx={};vm.createContext(ctx);vm.runInContext(read('assets/scenes.js'),ctx);
 for(const c of catalog){
-  if(c.cover.endsWith('.svg')&&!['measurement-error','t-normal'].includes(c.id))write(c.cover,ctx.PlantScenes[c.id](c.id==='interaction'?{effect:20}:{},3,true));
+  if(c.cover.endsWith('.svg')&&!['measurement-error','t-normal','trial-story'].includes(c.id))write(c.cover,ctx.PlantScenes[c.id](c.id==='interaction'?{effect:20}:{},3,true));
   else if(!fs.existsSync(path.join(dist,c.cover)))throw new Error(`Missing course artwork: ${c.cover}`);
-  if(['normal','t-normal'].includes(c.id)){write(c.path,read(c.path).replace(/((?:href|src)="\.\.\/)(assets\/[^"?]+)(?:\?[^"]*)?"/g,(_,prefix,p)=>prefix+asset(p)+'"'));continue;}
+  if(['normal','t-normal','trial-story'].includes(c.id)){write(c.path,read(c.path).replace(/((?:href|src)="\.\.\/)(assets\/[^"?]+)(?:\?[^"]*)?"/g,(_,prefix,p)=>prefix+asset(p)+'"'));continue;}
   const scripts=c.id==='splitplot'?['assets/catalog.js','assets/world-engine.js','assets/splitplot-model.js','assets/field-assets.js','assets/splitplot-world.js','assets/splitplot.js']:['assets/catalog.js','assets/world-engine.js','assets/world-scenes.js','assets/lesson.js'];
   if(c.id==='blocks')scripts.splice(2,0,'assets/field-assets.js');
   if(c.id==='measurement-error')scripts.splice(2,scripts.length-2,'assets/error-model.js','assets/error-lab.js');

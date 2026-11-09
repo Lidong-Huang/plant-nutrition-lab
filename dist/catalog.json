@@ -135,6 +135,24 @@
     "accent": "#c5ad7b"
   },
   {
+    "id": "trial-story",
+    "title": "这次玉米产量显著提高了吗？",
+    "category": "试验统计",
+    "chapter": "2024级农资班 · 五幕互动闯关",
+    "question": "同样高出50公斤，为什么结论可能不同？",
+    "description": "收获四个玉米小区，亲手抽样、标准化、选择尾部，用t分布完成显著性判断。",
+    "steps": [
+      "历史收获",
+      "四个小区",
+      "均值的波动",
+      "标准化与概率",
+      "作出判断"
+    ],
+    "cover": "covers/trial-story-v1.png",
+    "path": "lessons/trial-story.html",
+    "accent": "#b7c394"
+  },
+  {
     "id": "interaction",
     "title": "氮 × 磷的交互作用",
     "category": "试验统计",
