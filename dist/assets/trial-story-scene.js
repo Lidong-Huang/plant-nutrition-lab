@@ -123,7 +123,7 @@ function create(canvas,view){
  w.draw=()=>{const v=view();if(lastStep!==v.step){lastStep=v.step;hits=[];}
   if(v.step===0)TrialStoryTeaching.history(w,v);else if(v.step<4||v.step===14||v.step===15)field(v);else{w.extent=16;w.target=w.width<600?3:1.6;if(v.step===4||v.step===5)sampling(v);else if(v.step===6)standard(v);else if(v.step===7)unknown(v);else if(v.step===8)TrialStoryGosset.discovery(w,v);else tScene(v);}
  };
- const originalPaint=w.paint.bind(w);w.paint=()=>{originalPaint();const v=view();TrialStoryTeaching.paint(w,v);if(v.step===9)TrialStoryGosset.paintComparison(w,v);};
+ const originalPaint=w.paint.bind(w);w.paint=()=>{originalPaint();TrialStoryTeaching.paint(w,view());};
  let down=null;canvas.addEventListener('pointerdown',e=>{down={x:e.clientX,y:e.clientY}});canvas.addEventListener('pointerup',e=>{if(!down||Math.hypot(e.clientX-down.x,e.clientY-down.y)>7)return;const v=view();if(v.step!==1&&v.step!==14)return;const r=canvas.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top,hit=hits.filter(h=>Math.hypot(h.p.x-x,h.p.y-y)<h.radius).sort((a,b)=>Math.hypot(a.p.x-x,a.p.y-y)-Math.hypot(b.p.x-x,b.p.y-y))[0];if(hit&&v.onPlot)v.onPlot(hit.i)});
  return {world:w,centers,front(){w.camera.yaw=0;w.camera.pitch=.08;w.camera.zoom=1},reset(){Object.assign(w.camera,w.initial)},get hits(){return hits}};
 }
