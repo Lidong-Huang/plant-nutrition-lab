@@ -7,7 +7,7 @@ function create(canvas,view){
  const originalSky=w.sky.bind(w);w.sky=function(){const v=view();if(v.step<4||v.step===15)return originalSky();const c=w.ctx,g=c.createLinearGradient(0,0,0,w.height);g.addColorStop(0,'#f1f5eb');g.addColorStop(1,'#edf2e4');c.fillStyle=g;c.fillRect(0,0,w.width,w.height)};
  let hits=[],lastStep=-1;
  function field(v){
-  w.extent=19;w.target=w.width<600?3.2:.6;
+  w.extent=19;w.target=v.step===14?.3:w.width<600?3.2:.6;const yields=v.step===14?M.noisy:M.values;
   w.ground(17.6,12);w.road(0,5.1,17.2,.85);w.road(0,0,15.2,.6);w.road(-7.5,0,.7,9.6);w.road(7.5,0,.7,9.6);
   FieldAssets.channel(w,[[-6.9,0,-4.8],[6.8,0,-4.8]],.25);FieldAssets.channel(w,[[6.8,0,-4.8],[6.8,0,4.6]],.25,{drain:true});
   for(let i=0;i<19;i++)FieldAssets.maize(w,-6.3+i*.7,.02,-4.1,.62,30+i,{guard:true});
@@ -16,7 +16,7 @@ function create(canvas,view){
   if(w.width>=600){w.label([-6.7,.2,-4.85],'进水渠',{size:10,pill:true});w.label([6.9,.2,3.4],'排水沟',{size:10,pill:true});}
   hits=[];
   centers.forEach(([x,z],i)=>{
-   const harvested=v.session.e.harvest.includes(i),active=v.harvesting===i;
+   const harvested=(v.step===14?v.session.e.newHarvest:v.session.e.harvest).includes(i),active=v.harvesting===i;
    w.box(x,.015,z,4.7,.06,3.05,harvested?'#b1a67a':'#a5ad75');
    for(let r=0;r<3;r++)w.line([[x-1.9,.09,z-1.05+r*1.0],[x+1.9,.09,z-1.05+r*1.0]],'#bcb385',1);
    for(let a=0;a<3;a++)for(let b=0;b<3;b++){
@@ -26,7 +26,7 @@ function create(canvas,view){
     MaizeShoot.draw(w,{x:xx,y:.09,z:zz,height:1.24+(seed%5)*.045,stage:'mature',seed,detail:'low'});
    }
    w.line([[x-2.23,.11,z-1.38],[x+2.23,.11,z-1.38],[x+2.23,.11,z+1.38],[x-2.23,.11,z+1.38],[x-2.23,.11,z-1.38]],v.selected===i?'#caa05c':'#d7d9aa',v.selected===i?2.6:1);
-   w.label([x,.12,z+1.5],harvested?`重复${i+1} · ${M.values[i]}公斤/亩`:`重复${i+1}${v.step===1?' · 点击收获':''}`,{size:11,pill:true,color:harvested?'#718351':'#4e6e47'});
+   w.label([x,.12,z+1.5],harvested?`重复${i+1} · ${yields[i]}公斤/亩`:`重复${i+1}${v.step===1||v.step===14?' · 点击收获':''}`,{size:11,pill:true,color:harvested?'#718351':'#4e6e47'});
    hits.push({i,p:w.project([x,.6,z]),radius:Math.max(28,w.project([x,.6,z]).scale*1.9)});
    if(active||v.selected===i&&!harvested){
     for(let j=0;j<4;j++){const f=(v.harvestPhase+j*.19)%1,px=x+(j-1.5)*.25,py=.8+Math.sin(f*Math.PI)*1.1,pz=z+f*.6;
@@ -101,12 +101,13 @@ function create(canvas,view){
   const compare=stage===8||stage===9;
   const val=stage===14&&v.session.e.noisy?M.stats(M.noisy).t:M.stats(M.values).t;
   const cut=stage===9?2:stage===13?M.stats(M.values).critical:val;
-  let area=null;if(stage===9)area=x=>x>=cut;if(stage===11&&v.tail)area=v.tail==='right'?x=>x>=val:v.tail==='left'?x=>x<=val:x=>x>=-val&&x<=val;if(stage===12||stage===13||stage===14&&v.session.e.noisy)area=x=>x>=cut;
+  let area=null;if(stage===9)area=x=>x>=cut;if(stage===12||stage===13||stage===14&&v.session.e.noisy)area=x=>x>=cut;
+  if(stage===11){for(const [lo,hi,color,key] of [[-5.5,-val,blue,'left'],[-val,val,green,'middle'],[val,5.5,gold,'right']]){const points=Array.from({length:90},(_,i)=>{const x=lo+(hi-lo)*i/89;return [a.X(x),a.Y(StudentTMath.pdf(x,3)),0];});w.poly([[a.X(lo),0,0],...points,[a.X(hi),0,0]],color,{alpha:v.tail===key?.48:.2,lit:false});}w.label([-4.5,1.15,0],'偏低尾部',{size:11,color:blue,pill:true});w.label([0,1.1,0],'中间区域',{size:11,color:green,pill:true});w.label([4.2,.7,0],'本次及更偏高',{size:11,color:gold,pill:true});canvas.dataset.tailRegions='blue-left-green-middle-orange-right';}
   if(compare)curve(x=>NormalMath.pdf(x),a,blue,{area:stage===9?x=>x>=cut:null,dash:[5,4]});
-  curve(x=>StudentTMath.pdf(x,df),a,gold,{fill:!compare,area});
+  curve(x=>StudentTMath.pdf(x,df),a,gold,{fill:!compare&&stage!==11,area});
   w.label([-3.7,3.65,0],compare?'标准正态 N(0,1)':'本次试验 · n＝4',{size:12,color:compare?blue:ink});w.label([2.3,3.65,0],`t 分布 · df＝${df}`,{size:12,color:gold});
   if(stage>=10){
-   if(stage!==10||v.session.e.calculated){w.line([[a.X(val),0,0],[a.X(val),2.65,0]],stage===14?'#728c5b':gold,1.6,{dash:[4,4]});w.dot([a.X(val),.04,0],.08,gold);w.label([a.X(val),2.95,0],`t≈${val.toFixed(2)}`,{size:14,color:'#94723c',pill:true});}
+   if(stage!==10||v.session.e.calculated){w.line([[a.X(val),0,0],[a.X(val),2.65,0]],stage===14?'#728c5b':gold,1.6,{dash:[4,4]});w.dot([a.X(val),.04,0],.08,gold);w.label([a.X(val),2.95,0],`均值550 → t≈${val.toFixed(2)}`,{size:14,color:'#94723c',pill:true});}
    if(stage===13||stage===14&&v.session.e.noisy){const critical=M.stats(M.values).critical;w.line([[a.X(critical),0,0],[a.X(critical),1.8,0]],'#92a57a',1.2,{dash:[3,4]});w.label([a.X(critical),2.08,0],'临界值2.353',{size:11,color:'#7d8f68',pill:true});w.label([a.X(3.9),.6,0],stage===13?'右尾5% · 拒绝域':'α＝0.05',{size:11,color:'#9c804a'});}
    if((stage===11&&v.session.e.probability)||stage===12)w.label([a.X(4.1),1.8,0],'右尾面积≈1.52%',{size:12,color:'#a08045',pill:true});
   }
@@ -120,10 +121,10 @@ function create(canvas,view){
   canvas.dataset.comparisonDf=String(df);canvas.dataset.tMarker=String(val);canvas.dataset.probabilityRight=String(1-StudentTMath.cdf(val,df));
  }
  w.draw=()=>{const v=view();if(lastStep!==v.step){lastStep=v.step;hits=[];}
-  if(v.step===0)TrialStoryTeaching.history(w,v);else if(v.step<4||v.step===15)field(v);else{w.extent=16;w.target=w.width<600?3:1.6;if(v.step===4||v.step===5)sampling(v);else if(v.step===6)standard(v);else if(v.step===7)unknown(v);else tScene(v);}
+  if(v.step===0)TrialStoryTeaching.history(w,v);else if(v.step<4||v.step===14||v.step===15)field(v);else{w.extent=16;w.target=w.width<600?3:1.6;if(v.step===4||v.step===5)sampling(v);else if(v.step===6)standard(v);else if(v.step===7)unknown(v);else if(v.step===8)TrialStoryGosset.discovery(w,v);else tScene(v);}
  };
- const originalPaint=w.paint.bind(w);w.paint=()=>{originalPaint();TrialStoryTeaching.paint(w,view());};
- let down=null;canvas.addEventListener('pointerdown',e=>{down={x:e.clientX,y:e.clientY}});canvas.addEventListener('pointerup',e=>{if(!down||Math.hypot(e.clientX-down.x,e.clientY-down.y)>7)return;const v=view();if(v.step!==1)return;const r=canvas.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top,hit=hits.filter(h=>Math.hypot(h.p.x-x,h.p.y-y)<h.radius).sort((a,b)=>Math.hypot(a.p.x-x,a.p.y-y)-Math.hypot(b.p.x-x,b.p.y-y))[0];if(hit&&v.onPlot)v.onPlot(hit.i)});
+ const originalPaint=w.paint.bind(w);w.paint=()=>{originalPaint();const v=view();TrialStoryTeaching.paint(w,v);if(v.step===9)TrialStoryGosset.paintComparison(w,v);};
+ let down=null;canvas.addEventListener('pointerdown',e=>{down={x:e.clientX,y:e.clientY}});canvas.addEventListener('pointerup',e=>{if(!down||Math.hypot(e.clientX-down.x,e.clientY-down.y)>7)return;const v=view();if(v.step!==1&&v.step!==14)return;const r=canvas.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top,hit=hits.filter(h=>Math.hypot(h.p.x-x,h.p.y-y)<h.radius).sort((a,b)=>Math.hypot(a.p.x-x,a.p.y-y)-Math.hypot(b.p.x-x,b.p.y-y))[0];if(hit&&v.onPlot)v.onPlot(hit.i)});
  return {world:w,centers,front(){w.camera.yaw=0;w.camera.pitch=.08;w.camera.zoom=1},reset(){Object.assign(w.camera,w.initial)},get hits(){return hits}};
 }
 window.TrialStoryScene={create};
