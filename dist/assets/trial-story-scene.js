@@ -71,8 +71,8 @@ function create(canvas,view){
  }
  function sampling(v){
   const n=v.step===4?4:v.sampleN,se=40/Math.sqrt(n),a=axis({lo:340,hi:660,ticks:[380,420,460,500,540,580,620],unit:'公斤/亩',yScale:100});
-  curve(x=>NormalMath.pdf(x,500,40),a,blue,{fill:true});curve(x=>NormalMath.pdf(x,500,se),a,green,{fill:true,dash:v.session.e.samples.length<15?[5,4]:[]});
-  w.label([-3.8,3.65,0],'单个小区 X',{size:12,color:blue});w.label([2.3,3.65,0],`均值 X̄ · n=${n}`,{size:12,color:green});
+  curve(x=>NormalMath.pdf(x,500,40),a,blue,{fill:true});if(v.step===5||v.session.e.nullModel)curve(x=>NormalMath.pdf(x,500,se),a,green,{fill:true,dash:v.session.e.samples.length<15?[5,4]:[]});
+  w.label([-3.6,3.65,0],'历史单个小区 X',{size:12,color:blue});if(v.step===5||v.session.e.nullModel)w.label([2.3,3.65,0],`每次试验的均值 X̄ · n=${n}`,{size:12,color:green});
   w.line([[a.X(460),-.7,0],[a.X(540),-.7,0]],blue,2);w.label([a.X(500),-1.0,0],'σ＝40',{size:11,color:blue});
   w.line([[a.X(500-se),-.46,0],[a.X(500+se),-.46,0]],green,3);w.label([a.X(500),.28,0],`SE＝${se.toFixed(0)}`,{size:10,color:green});
   if(v.step===4){
@@ -84,10 +84,13 @@ function create(canvas,view){
   }
   canvas.dataset.samplingWidthRatio=String(1/Math.sqrt(n));canvas.dataset.samplingN=String(n);
  }
+ function unknown(v){const a=axis(),estimated=v.session.e.estimated;curve(x=>NormalMath.pdf(x),a,blue,{dash:[5,5]});w.label([0,3.65,0],estimated?'分母估出来了，还能查这张表吗？':'本来可以查标准正态表……',{size:13,color:blue,pill:true});w.label([2.6,1.7,0],estimated?'我们先估成12.91':'但550应该放在哪里？',{size:12,color:'#a38b55',pill:true});w.label([0,-.8,0],estimated?'(550 − 500) / (s/√4) ＝ (550 − 500) / 12.91':'(550 − 500) / (σ/√4) ＝ ？',{size:estimated?12:14,color:'#8e815c'});canvas.dataset.unknownSE='true';}
  function standard(v){
-  const phase=v.standardVisual,center=500*(1-Math.min(phase,1)),scale=phase>1?1+(20-1)*(2-phase):20;
+  const phase=v.standardVisual,{center,scale,cutoff:value}=M.standardMapping(phase);
   const lo=center-4*scale,hi=center+4*scale,a=axis({lo,hi,ticks:[-3,-2,-1,0,1,2,3].map(z=>center+z*scale),yScale:scale*7.5});
-  curve(x=>NormalMath.pdf(x,center,scale),a,blue,{fill:true});const value=center+2.5*scale;
+  const pdf=x=>NormalMath.pdf(x,center,scale);curve(pdf,a,blue,{fill:true});
+  const tail=Array.from({length:61},(_,i)=>{const x=value+(hi-value)*i/60;return [a.X(x),a.Y(pdf(x)),0];});w.poly([[a.X(value),0,0],...tail,[a.X(hi),0,0]],gold,{alpha:.65,lit:false});
+  if(v.session.e.tableOpened&&phase>=1.99){const parts=Math.round(8+56*(v.lookupVisual||1)),dx=(value-center)/parts;for(let i=0;i<parts;i++){const x=center+i*dx;w.poly([[a.X(x),0,0],[a.X(x),a.Y(pdf(x+dx/2)),0],[a.X(x+dx),a.Y(pdf(x+dx/2)),0],[a.X(x+dx),0,0]],blue,{alpha:.45,lit:false});}w.label([a.X(1.1),1.0,0],'表中：0到2.50',{size:11,color:'#5f8196',pill:true});}
   w.line([[a.X(value),0,0],[a.X(value),2.4,0]],gold,1.4,{dash:[4,4]});w.dot([a.X(value),.05,0],.08,gold);
   w.label([0,3.65,0],phase<.99?'原始均值分布':phase<1.99?'减去500：中心移到0':'除以标准误差：标准差变为1',{size:14,color:ink,pill:true});
   w.label([a.X(value),2.85,0],`${phase<1.99?'当前坐标':'Z'}＝${value.toFixed(phase<1.99?1:2)}`,{size:12,color:'#9e7e3f',pill:true});
@@ -117,17 +120,9 @@ function create(canvas,view){
   canvas.dataset.comparisonDf=String(df);canvas.dataset.tMarker=String(val);canvas.dataset.probabilityRight=String(1-StudentTMath.cdf(val,df));
  }
  w.draw=()=>{const v=view();if(lastStep!==v.step){lastStep=v.step;hits=[];}
-  if(v.step<4||v.step===15)field(v);else{w.extent=16;w.target=w.width<600?3:1.6;if(v.step===4||v.step===5)sampling(v);else if(v.step===6)standard(v);else tScene(v);}
+  if(v.step===0)TrialStoryTeaching.history(w,v);else if(v.step<4||v.step===15)field(v);else{w.extent=16;w.target=w.width<600?3:1.6;if(v.step===4||v.step===5)sampling(v);else if(v.step===6)standard(v);else if(v.step===7)unknown(v);else tScene(v);}
  };
- const originalPaint=w.paint.bind(w);w.paint=()=>{originalPaint();const v=view();if(v.step!==0||v.historyProgress<=0)return;
-  const c=w.ctx,mobile=w.width<600,cw=Math.min(w.width-38,mobile?400:610),ch=mobile?153:192,x=(w.width-cw)/2,y=mobile?173:210,f=v.historyProgress;
-  c.save();c.globalAlpha=Math.min(1,f*3);c.shadowColor='#4c654024';c.shadowBlur=16;c.fillStyle='#fdfcedf5';c.beginPath();c.roundRect(x,y,cw,ch,10);c.fill();c.shadowBlur=0;c.strokeStyle='#dce3cc';c.lineWidth=1;c.stroke();
-  c.font=`${mobile?10:12}px Microsoft YaHei,sans-serif`;c.fillStyle='#81916d';c.textAlign='left';c.fillText('历史收获档案 · 示意',x+17,y+24);c.textAlign='right';c.fillStyle='#4e724b';c.fillText('长期平均 500',x+cw-17,y+24);
-  const left=x+28,right=x+cw-25,base=y+ch-34,height=ch-77,growth=Math.min(1,f*1.4);c.strokeStyle='#bac8a8';c.beginPath();c.moveTo(left,base);c.lineTo(right,base);c.stroke();
-  for(let j=0;j<25;j++){const bw=(right-left)/25,h=Math.exp(-.5*((j-12)/4.3)**2)*height*growth;c.fillStyle=j===12?'#789e7c':'#b7cab0';c.fillRect(left+j*bw+1,base-h,bw-2,h);}
-  c.beginPath();for(let j=0;j<=100;j++){const t=j/100,xx=left+t*(right-left),yy=base-Math.exp(-.5*((t-.5)/.172)**2)*height*growth;j?c.lineTo(xx,yy):c.moveTo(xx,yy);}c.strokeStyle='#7094a8';c.lineWidth=1.6;c.stroke();
-  c.font=`${mobile?9:10}px Microsoft YaHei,sans-serif`;c.textAlign='center';for(const value of [380,440,500,560,620])c.fillText(String(value),left+(value-340)/320*(right-left),base+17);c.restore();
- };
+ const originalPaint=w.paint.bind(w);w.paint=()=>{originalPaint();TrialStoryTeaching.paint(w,view());};
  let down=null;canvas.addEventListener('pointerdown',e=>{down={x:e.clientX,y:e.clientY}});canvas.addEventListener('pointerup',e=>{if(!down||Math.hypot(e.clientX-down.x,e.clientY-down.y)>7)return;const v=view();if(v.step!==1)return;const r=canvas.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top,hit=hits.filter(h=>Math.hypot(h.p.x-x,h.p.y-y)<h.radius).sort((a,b)=>Math.hypot(a.p.x-x,a.p.y-y)-Math.hypot(b.p.x-x,b.p.y-y))[0];if(hit&&v.onPlot)v.onPlot(hit.i)});
  return {world:w,centers,front(){w.camera.yaw=0;w.camera.pitch=.08;w.camera.zoom=1},reset(){Object.assign(w.camera,w.initial)},get hits(){return hits}};
 }
