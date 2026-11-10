@@ -84,7 +84,7 @@ function create(canvas,view){
   }
   canvas.dataset.samplingWidthRatio=String(1/Math.sqrt(n));canvas.dataset.samplingN=String(n);
  }
- function unknown(v){const a=axis(),estimated=v.session.e.estimated;curve(x=>NormalMath.pdf(x),a,blue,{dash:[5,5]});w.label([0,3.65,0],estimated?'分母估出来了，还能查这张表吗？':'本来可以查标准正态表……',{size:13,color:blue,pill:true});w.label([2.6,1.7,0],estimated?'我们先估成12.91':'但550应该放在哪里？',{size:12,color:'#a38b55',pill:true});w.label([0,-.8,0],estimated?'(550 − 500) / (s/√4) ＝ (550 − 500) / 12.91':'(550 − 500) / (σ/√4) ＝ ？',{size:estimated?12:14,color:'#8e815c'});canvas.dataset.unknownSE='true';}
+ function unknown(v){const a=axis(),estimated=v.session.e.estimated;curve(x=>NormalMath.pdf(x),a,blue,{dash:[5,5]});w.label([0,3.65,0],estimated?'分母换成样本估计值，再看分布':'总体标准误差未知，U无法算出',{size:13,color:blue,pill:true});w.label([2.2,1.7,0],estimated?'样本标准误差≈12.91':'σ/√n未知',{size:12,color:'#a38b55',pill:true});w.label([0,-.8,0],estimated?'σ/√n未知 → 用s/√n代替':'总体标准误差 σ/√n → 样本标准误差 s/√n',{size:12,color:'#8e815c'});canvas.dataset.unknownSE='true';}
  // The standardization scene is drawn in screen coordinates by TrialStoryTeaching.
  function standard(v){}
  function tScene(v){
