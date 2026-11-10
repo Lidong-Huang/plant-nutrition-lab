@@ -85,17 +85,8 @@ function create(canvas,view){
   canvas.dataset.samplingWidthRatio=String(1/Math.sqrt(n));canvas.dataset.samplingN=String(n);
  }
  function unknown(v){const a=axis(),estimated=v.session.e.estimated;curve(x=>NormalMath.pdf(x),a,blue,{dash:[5,5]});w.label([0,3.65,0],estimated?'分母估出来了，还能查这张表吗？':'本来可以查标准正态表……',{size:13,color:blue,pill:true});w.label([2.6,1.7,0],estimated?'我们先估成12.91':'但550应该放在哪里？',{size:12,color:'#a38b55',pill:true});w.label([0,-.8,0],estimated?'(550 − 500) / (s/√4) ＝ (550 − 500) / 12.91':'(550 − 500) / (σ/√4) ＝ ？',{size:estimated?12:14,color:'#8e815c'});canvas.dataset.unknownSE='true';}
- function standard(v){
-  const phase=v.standardVisual,{center,scale,cutoff:value}=M.standardMapping(phase);
-  const lo=center-4*scale,hi=center+4*scale,a=axis({lo,hi,ticks:[-3,-2,-1,0,1,2,3].map(z=>center+z*scale),yScale:scale*7.5});
-  const pdf=x=>NormalMath.pdf(x,center,scale);curve(pdf,a,blue,{fill:true});
-  const tail=Array.from({length:61},(_,i)=>{const x=value+(hi-value)*i/60;return [a.X(x),a.Y(pdf(x)),0];});w.poly([[a.X(value),0,0],...tail,[a.X(hi),0,0]],gold,{alpha:.65,lit:false});
-  if(v.session.e.tableOpened&&phase>=1.99){const parts=Math.round(8+56*(v.lookupVisual||1)),dx=(value-center)/parts;for(let i=0;i<parts;i++){const x=center+i*dx;w.poly([[a.X(x),0,0],[a.X(x),a.Y(pdf(x+dx/2)),0],[a.X(x+dx),a.Y(pdf(x+dx/2)),0],[a.X(x+dx),0,0]],blue,{alpha:.45,lit:false});}w.label([a.X(1.1),1.0,0],'表中：0到2.50',{size:11,color:'#5f8196',pill:true});}
-  w.line([[a.X(value),0,0],[a.X(value),2.4,0]],gold,1.4,{dash:[4,4]});w.dot([a.X(value),.05,0],.08,gold);
-  w.label([0,3.65,0],phase<.99?'原始均值分布':phase<1.99?'减去500：中心移到0':'除以标准误差：标准差变为1',{size:14,color:ink,pill:true});
-  w.label([a.X(value),2.85,0],`${phase<1.99?'当前坐标':'Z'}＝${value.toFixed(phase<1.99?1:2)}`,{size:12,color:'#9e7e3f',pill:true});
-  canvas.dataset.standardCenter=String(center);canvas.dataset.standardScale=String(scale);
- }
+ // The standardization scene is drawn in screen coordinates by TrialStoryTeaching.
+ function standard(v){}
  function tScene(v){
   const n=v.step===9?v.compareN:4,df=n-1,a=axis(),stage=v.step;
   const compare=stage===8||stage===9;
