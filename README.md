@@ -6,6 +6,12 @@
 
 **在线体验：[https://lidong-huang.github.io/plant-nutrition-lab/](https://lidong-huang.github.io/plant-nutrition-lab/)**
 
+## 植知智能导学
+
+**[打开智能导学页面](https://lidong-huang.github.io/plant-nutrition-lab/agent.html)** · [功能与源码](agent/README.md) · [DeepSeek服务端部署说明](docs/DeepSeek智能导学部署.md) · [离线工具页](dist/downloads/agent.html)
+
+查找原创动画、计算试验数据、完成巩固练习；配置服务端后可使用DeepSeek多轮答疑与工具调用。API密钥只由服务端读取。未接通时页面明确显示状态，检索、计算与练习仍可使用。
+
 ## 教学资源
 
 已整理 **13 项定稿资源**：植物营养 3 项、培养试验 3 项、田间试验 2 项、试验统计 5 项。

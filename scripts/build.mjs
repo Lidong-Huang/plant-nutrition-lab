@@ -4,16 +4,18 @@ import vm from 'node:vm';
 import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import {syncResourceDocs} from './sync-resource-docs.mjs';
+import {buildAgent} from './build-agent.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const dist=path.join(root,'dist'),read=p=>fs.readFileSync(path.join(dist,p),'utf8');
 const asset=p=>p+'?v='+createHash('sha256').update(read(p)).digest('hex').slice(0,10);
 const catalog=JSON.parse(read('catalog.json'));
+buildAgent();
 const write=(p,s)=>{const dest=path.join(dist,p);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.writeFileSync(dest,s)};
 write('assets/catalog.js',`window.CATALOG=${JSON.stringify(catalog)};\n`);
 // Keep the landing page counts and cache keys aligned with the released catalog.
 write('index.html',read('index.html')
  .replace(/(<span><b>)\d+(<\/b> 个互动课件)/,`$1${catalog.length}$2`)
- .replace(/(<button[^>]+data-filter="([^\"]+)"[^>]*>)([\s\S]*?)(<\/button>)/g,(_,open,category,label,close)=>category==='全部'?open+label+close:open+category+' <small>'+String(catalog.filter(c=>c.category===category).length).padStart(2,'0')+'</small>'+close)
+ .replace(/(<button[^>]+data-filter="([^\"]+)"[^>]*>)([\s\S]*?)(<\/button>)/g,(_,open,category,label,close)=>category==='全部'?open+'全部 <small>'+catalog.length+'</small>'+close:open+category+' <small>'+String(catalog.filter(c=>c.category===category).length).padStart(2,'0')+'</small>'+close)
  .replace(/显示全部 \d+ 个教学资源/g,`显示全部 ${catalog.length} 个教学资源`)
  .replace(/((?:href|src)=")((?:assets\/)[^"?]+)(?:\?[^"]*)?"/g,(_,prefix,p)=>prefix+asset(p)+'"'));
 const ctx={};vm.createContext(ctx);vm.runInContext(read('assets/scenes.js'),ctx);
